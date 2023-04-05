@@ -24,7 +24,8 @@ namespace MapMyPathCore.Services
                     IsDeleted = item.IsDeleted,
                     Password = item.Password,
                     FirstName = item.FirstName,
-                    LastName = item.LastName
+                    LastName = item.LastName,
+                    Email = item.Email
 
                 });
             }
@@ -42,7 +43,8 @@ namespace MapMyPathCore.Services
                 CreatedAt = user.CreatedAt,
                 IsDeleted = user.IsDeleted,
                 Password = user.Password,
-                UserName = user.UserName
+                UserName = user.UserName,
+                Email = user.Email
             };
         }
 
@@ -53,7 +55,7 @@ namespace MapMyPathCore.Services
                 CONTEXT.Users.Add(new Areas.Identity.Data.MapMyPathCoreUser
                 {
                     CreatedAt = user.CreatedAt,
-                    Email = user.UserName,
+                    Email = user.Email,
                     EmailConfirmed = true,
                     FirstName = user.FirstName,
                     IsDeleted = 0,

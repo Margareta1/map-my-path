@@ -1,8 +1,66 @@
 ﻿@{
     ViewData["Title"] = "Home Page";
 }
+<link rel="stylesheet" href="~/wwwroot/css/images/main.css" asp-append-version="true" />
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+<div class="mycontainer">
+    <div class="box">
+<div class="bg">
+    <img src="../images/travelphoto.jpg" alt="kampus Algebra">
+</div>
+<div class="position-text">
+    <h1 class="display">Unlock the secrets of new cities,<br /> without getting lost!</h1>
+     <p class="m-2 subtext"> Choose city: <a href="#idslider" style="text-decoration:none"> Zagreb </a></p>
+</div>
+    </div>
+    <div id="idslider" class="box">
+        <div class="slideshow-container">
+            <div class="mySlides fade-custom">      
+                <img src="../images/zagreb1.jpg" class="image" style="width:100%">
+                <div class="middle">
+                    <p class="text">Discover new city with MapMyPath's predefined routes. From iconic landmarks to hidden gems, we've got you covered. 
+                        Choose a route that suits your interests and let us guide you to the best sights and experiences your destination has to offer.</p>
+                    <input type="button" name="button" class="button" value="Explore the routs of Zagreb" />
+                    <input type="button" name="button" class="button-hidden" value="Explore" />
+                </div>
+                <div class="right-half"></div>
+            </div>
+            <div class="mySlides fade-custom">
+                <img src="../images/zg1.jpg" class="image" style="width:100%">
+                <div class="middle">
+                    <p class="text">
+                        Stay safe & comfortable with up-to-date weather & pollution data from MapMyPath. Plan your day accordingly and avoid potential health risks.
+                        We've got you covered, so you can focus on enjoying your adventure.
+                    </p>
+                    <input type="button" name="button" class="button" value="Weather & Pollution Info" />
+                    <input type="button" name="button" class="button-hidden" value="Info" />
+                </div>
+            </div>
+            <div class="mySlides fade-custom">
+                <img src="../images/zagreb3.jpg" class="image" style="width:100%">
+                <div class="middle">
+                    <p class="text">
+                        Stay in the know with MapMyPath's live feed. Get up-to-the-minute info on events, attractions, and hotspots from locals and travelers. 
+                        Share your experiences and discover new favorites. Don't miss out, check out our live feed and join the conversation!
+                    </p>
+                    <input type="button" name="button" class="button" value="Live City Feed" />
+                    <input type="button" name="button" class="button-hidden" value="Live City Feed" />
+                </div>
+            </div>
+            <div class="mySlides fade-custom">
+                <img src="../images/zagreb2.jpg" class="image" style="width:100%">
+                <div class="middle">
+                    <p class="text">
+                        Find the best places to eat and explore with MapMyPath. Our app guides you to popular and unique spots with user reviews and ratings.
+                        Trust us to lead you to a memorable experience. Start exploring today!
+                    </p>
+                    <input type="button" name="button" class="button" value="Discover the Best Of the City" />
+                    <input type="button" name="button" class="button-hidden" value="Discover " />
+                </div>
+            </div>
+            <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+            <a class="next" onclick="plusSlides(1)">&#10095;</a>
+        </div>
+        <br>
+</div>
 </div>
