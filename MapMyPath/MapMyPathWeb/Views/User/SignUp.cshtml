@@ -36,17 +36,13 @@
                             @Html.ValidationMessageFor(model => model.LastName, "", new { @class = "text-danger" })
                         </div>
 
-                                <div class="col-md-12 col">
-                            @Html.EditorFor(model => model.Email, new { htmlAttributes = new {@placeholder = "Email", @class = "form-control  col-md-10 shadow-sm p-3 mb-5 bg-white rounded" } })
-                            @Html.ValidationMessageFor(model => model.Email, "", new { @class = "text-danger" })
-                        </div>
                    
-                        <div class="col-md-30 col">
+                        <div class="col-md-12 col">
                             @Html.EditorFor(model => model.UserName, new { htmlAttributes = new {@placeholder = "Username", @class = "form-control  col-md-10 shadow-sm p-3 mb-5 bg-white rounded" } })
                             @Html.ValidationMessageFor(model => model.UserName, "", new { @class = "text-danger" })
                         </div>
                   
-                        <div class="col-md-30 col">
+                        <div class="col-md-12 col">
                             @Html.EditorFor(model => model.Password, new { htmlAttributes = new {@placeholder = "Password", @class = "form-control  col-md-10 shadow-sm p-3 mb-5 bg-white roundedl", Type = "password" } })
                             @Html.ValidationMessageFor(model => model.Password, "", new { @class = "text-danger" })
                         </div>
