@@ -6,7 +6,6 @@ using Microsoft.AspNetCore.Identity;
 
 namespace MapMyPathCore.Areas.Identity.Data;
 
-// Add profile data for application users by adding properties to the MapMyPathCoreUser class
 public class MapMyPathCoreUser : IdentityUser
 {
     public string Password { get; set; }
