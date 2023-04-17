@@ -13,7 +13,7 @@ namespace MapMyPathCore.Services
 
         public IList<AppUser> GetUsers()
         {
-            var users = CONTEXT.Users.Where(u=> u.IsDeleted==0).ToList();
+            var users = CONTEXT.Users.Where(u => u.IsDeleted == 0).ToList();
             var modelUsers = new List<AppUser>();
             foreach (var item in users)
             {
@@ -25,26 +25,26 @@ namespace MapMyPathCore.Services
                     Password = item.Password,
                     FirstName = item.FirstName,
                     LastName = item.LastName,
-                 
+
 
                 });
             }
             return modelUsers;
         }
 
-        public AppUser GetUserById(Guid id)
+        public AppUser GetUserByUsername(string username)
         {
-            var user = CONTEXT.Users.First(x => x.Id == id.ToString());
+            var user = CONTEXT.Users.First(x => x.UserName == username);
             return new AppUser
             {
-                Id = id,
+                Id=Guid.Parse(user.Id),
                 FirstName = user.FirstName,
                 LastName = user.LastName,
                 CreatedAt = user.CreatedAt,
                 IsDeleted = user.IsDeleted,
                 Password = user.Password,
                 UserName = user.UserName,
-              
+
             };
         }
 
@@ -71,6 +71,33 @@ namespace MapMyPathCore.Services
             {
                 return false;
             }
+        }
+
+        public bool ExistsInDatabase(string username)
+        {
+            return CONTEXT.Users.ToList().Exists(u => u.UserName == username);
+        }
+
+        public bool ValidateUser(string username, string password)
+        {
+            return CONTEXT.Users.ToList().Exists(u => u.UserName == username && u.Password == password && u.IsDeleted == 0);
+        }
+
+        public bool DeleteUser(string username)
+        {
+            try
+            {
+                var user = CONTEXT.Users.FirstOrDefault(u => u.UserName == username);
+                user.IsDeleted = 1;
+                CONTEXT.Users.Update(user);
+                CONTEXT.SaveChanges();
+                return true;
+            }
+            catch (Exception)
+            {
+                return false;
+            }
+
         }
     }
 }
