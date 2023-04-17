@@ -29,7 +29,7 @@ namespace MapMyPathApi.Controllers
             {
                 usersList = accountService.GetUsers().ToList();
                 var output = JsonConvert.SerializeObject(usersList);
-                return new JsonResult(JsonConvert.DeserializeObject(output));
+                return new JsonResult(usersList);
             }
             catch (Exception e)
             {
