@@ -102,11 +102,11 @@ namespace MapMyPathApi.Controllers
 
         }
 
-        [Route("getuserinfo/{username}")]
-        public JsonResult GetUserInfo(string username)
-        {
-            var user = accountService.GetUserById()
+        //[Route("getuserinfo/{username}")]
+        //public JsonResult GetUserInfo(string username)
+        //{
+        //    var user = accountService.GetUserById()
 
-        }
+        //}
     }
 }
