@@ -10,9 +10,13 @@ namespace MapMyPathApi.Controllers
     {
 
         private AccountService accountService;
-        public UserController()
+        private readonly ILogger<UserController> _logger;
+
+        public UserController(ILogger<UserController> logger)
         {
             accountService = new AccountService();
+            _logger = logger;
+
         }
 
         [HttpGet]
@@ -100,12 +104,42 @@ namespace MapMyPathApi.Controllers
                 return new JsonResult("There is no account in the database with this username");
             }
 
+        }        
+        [Route("restoreuser/{username}")]
+        public JsonResult RestoreUser(string username)
+        {
+            if (accountService.ExistsInDatabase(username))
+            {
+                try
+                {
+                    var deleted = accountService.RestoreUser(username);
+                    return new JsonResult("Success");
+                }
+                catch (Exception e)
+                {
+                    return new JsonResult(e.Message);
+                }
+            }
+            else
+            {
+                return new JsonResult("There is no account in the database with this username");
+            }
+
         }
 
         [Route("getuserinfo/{username}")]
         public JsonResult GetUserInfo(string username)
         {
-            var user = accountService.GetUserById()
+            try
+            {
+                var user = accountService.GetUserByUsername(username);
+                return new JsonResult(user);
+            }
+            catch (Exception e)
+            {
+                return new JsonResult(e.Message);
+                
+            }
 
         }
     }

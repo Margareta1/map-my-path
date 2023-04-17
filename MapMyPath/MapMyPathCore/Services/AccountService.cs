@@ -99,5 +99,22 @@ namespace MapMyPathCore.Services
             }
 
         }
+
+        public bool RestoreUser(string username)
+        {
+            try
+            {
+                var user = CONTEXT.Users.FirstOrDefault(u => u.UserName == username);
+                user.IsDeleted = 0;
+                CONTEXT.Users.Update(user);
+                CONTEXT.SaveChanges();
+                return true;
+
+            }
+            catch (Exception)
+            {
+                return false;
+            }
+        }
     }
 }
