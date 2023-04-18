@@ -2,6 +2,9 @@
     ViewData["Title"] = "Home Page";
 }
 <link rel="stylesheet" href="~/wwwroot/css/images/main.css" asp-append-version="true" />
+<body scroll="no" style="overflow: hidden">
+
+
 
 <div class="mycontainer">
     <div class="box">
@@ -32,7 +35,7 @@
                         Stay safe & comfortable with up-to-date weather & pollution data from MapMyPath. Plan your day accordingly and avoid potential health risks.
                         We've got you covered, so you can focus on enjoying your adventure.
                     </p>
-                    <input type="button" name="button" class="button" value="Weather & Pollution Info" />
+                     <input type="button" name="button" class="button" value="Weather & Pollution Info" onclick="@("window.location.href='" + @Url.Action("WeatherInfo", "Home") + "'");"/>
                     <input type="button" name="button" class="button-hidden" value="Info" />
                 </div>
             </div>
@@ -64,3 +67,4 @@
         <br>
 </div>
 </div>
+</body>
