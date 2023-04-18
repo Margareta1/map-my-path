@@ -43,7 +43,7 @@
                         Stay in the know with MapMyPath's live feed. Get up-to-the-minute info on events, attractions, and hotspots from locals and travelers. 
                         Share your experiences and discover new favorites. Don't miss out, check out our live feed and join the conversation!
                     </p>
-                    <input type="button" name="button" class="button" value="Live City Feed" />
+                    <input type="button" name="button" class="button" value="Live City Feed" onclick="@("window.location.href='" + @Url.Action("LiveFeed", "Home") + "'");"/>
                     <input type="button" name="button" class="button-hidden" value="Live City Feed" />
                 </div>
             </div>

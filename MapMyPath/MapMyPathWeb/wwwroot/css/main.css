@@ -1,5 +1,17 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300&display=swap');
 
+#video-gal.container {
+    margin-top: 10%;
+    z-index: 1;
+    position: relative;
+    margin-bottom: 10%;
+    background-color: rgba(255, 255, 255, 0.7);
+    overflow-y: hidden;
+    border-radius: 25px;
+    padding: 30px;
+    color: #334870;
+}
+
 .bg {
     position: absolute;
     top: 0;
@@ -8,6 +20,20 @@
     height: 100vh;
     overflow: hidden;
     z-index: 1;
+}
+
+#bg-feed {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 200vh;
+    overflow: hidden;
+    z-index: 1;
+    background-image: url("../images/zagreb1.jpg");
+    background-attachment: fixed;
+    background-size: auto;
+    opacity: 0.5;
 }
 
 .bg img {
@@ -25,8 +51,9 @@
     z-index: 10;
     position: absolute;
 }
+
 .subtext {
-    font-size:2vw;
+    font-size: 2vw;
 }
 
 .display {
@@ -54,51 +81,49 @@
     display: none;
 }
 
-.mySlides img {
-    min-width: 100%;
-    height: 100vh;
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    overflow: hidden;
-    background-size: cover;
-    opacity: 1;
-    display: block;
-    transition: .5s ease;
-    backface-visibility: hidden;
-}
+    .mySlides img {
+        min-width: 100%;
+        height: 100vh;
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        overflow: hidden;
+        background-size: cover;
+        opacity: 1;
+        display: block;
+        transition: .5s ease;
+        backface-visibility: hidden;
+    }
 
-.mySlides::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 50%;
-    transform: rotate(360deg) scale(1) skew(-12deg) translate(-7px,0px);
-    -webkit-transform: rotate(360deg) scale(1) skew(-12deg) translate(-7px,0px);
-    -moz-transform: rotate(360deg) scale(1) skew(-12deg) translate(-7px,0px);
-    width: 100%;
-    height: 100%;
-    background-color: #334870;
-    opacity: 0;
-    transition: opacity 0.3s ease;
-    z-index: 1;
-}
+    .mySlides::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 50%;
+        transform: rotate(360deg) scale(1) skew(-12deg) translate(-7px,0px);
+        -webkit-transform: rotate(360deg) scale(1) skew(-12deg) translate(-7px,0px);
+        -moz-transform: rotate(360deg) scale(1) skew(-12deg) translate(-7px,0px);
+        width: 100%;
+        height: 100%;
+        background-color: #334870;
+        opacity: 0.5;
+        transition: opacity 0.3s ease;
+        z-index: 1;
+    }
 
-.mySlides:hover::before {
-    opacity: 0.9;
-}
+    .mySlides:hover::before {
+        opacity: 0.9;
+    }
 
 .slideshow-container:hover .middle {
     opacity: 1;
-  
 }
 
 .middle {
-
     display: flex;
     justify-content: center;
-    flex-direction:column;
+    flex-direction: column;
     width: 20%;
     transition: .5s ease;
     opacity: 0;
@@ -125,17 +150,19 @@
     transform: translateY(0);
 }
 
-.button:hover {
-    color: #334870;
-    background-color: white;
-    transition: 1000ms;
-    padding: 10px 50px;
-    transform: translateY(-0px);
-    border: solid 2px #0066cc;
+    .button:hover {
+        color: #334870;
+        background-color: white;
+        transition: 1000ms;
+        padding: 10px 50px;
+        transform: translateY(-0px);
+        border: solid 2px #0066cc;
+    }
+
+.button-hidden {
+    display: none;
 }
-.button-hidden{
-    display:none;
-}
+
 .text {
     font-weight: 300;
     color: white;
@@ -160,25 +187,23 @@
     transition: 0.6s ease;
     border-radius: 0 3px 3px 0;
     user-select: none;
-    z-index:1000;
+    z-index: 1000;
 }
-
 
 .next {
     right: 0;
     border-radius: 3px 0 0 3px;
 }
 
- 
-.prev:hover, .next:hover {
-    background-color: #334870;
-}
-
+    .prev:hover, .next:hover {
+        background-color: #334870;
+    }
 
 .fade-custom {
     animation-name: fade;
-    animation-duration:2s;
+    animation-duration: 2s;
 }
+
 @keyframes fade {
     from {
         opacity: .4
@@ -189,23 +214,24 @@
     }
 }
 
-
 @media screen and (max-width: 780px) {
     .position-text {
-      
-        margin-top:60%;
+        margin-top: 60%;
         margin-left: 7%;
         color: #334870;
         z-index: 10;
         position: absolute;
     }
+
     .display {
         font-weight: 300;
         font-size: 10vw;
     }
+
     .subtext {
         font-size: 6vw;
     }
+
     .middle {
         width: 30%;
         margin-top: 30%;
@@ -222,14 +248,14 @@
     .text {
         font-size: 3vw;
     }
-    
+
     .button {
-       display:none;
+        display: none;
     }
 
     .button-hidden {
-        display:block;
-        margin:auto;
+        display: block;
+        margin: auto;
         border: hidden;
         border-radius: 10px 10px 10px 10px;
         background-color: #334870;
@@ -242,14 +268,14 @@
         transform: translateY(0);
     }
 
-    .button-hidden:hover {
-        transition: 1000ms;
-        padding: 10%;
-        transform: translateY(-0px);
-        color: #334870;
-        background-color: white;
-        border: solid 2px #0066cc;
-    }
+        .button-hidden:hover {
+            transition: 1000ms;
+            padding: 10%;
+            transform: translateY(-0px);
+            color: #334870;
+            background-color: white;
+            border: solid 2px #0066cc;
+        }
 
     .slideshow-container:hover::before .middle {
         opacity: 0.8;
