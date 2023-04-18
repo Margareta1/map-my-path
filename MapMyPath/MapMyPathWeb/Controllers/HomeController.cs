@@ -1,4 +1,5 @@
-﻿using MapMyPathWeb.Models;
+﻿using MapMyPathCore.Services;
+using MapMyPathWeb.Models;
 using Microsoft.AspNetCore.Mvc;
 using System.Diagnostics;
 
@@ -26,6 +27,15 @@ namespace MapMyPathWeb.Controllers
         public IActionResult LiveFeed()
         {
             return View();
+        }
+
+        public async Task<IActionResult> WeatherInfo()
+        {
+            var ws = new WeatherService().GetWeatherFromOpenWeatherApi("Zagreb");
+            await ws;
+            var weather = ws.Result;
+            ViewBag.WeatherInfo = weather;
+            return View(weather);
         }
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]

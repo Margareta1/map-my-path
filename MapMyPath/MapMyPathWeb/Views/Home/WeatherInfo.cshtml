@@ -1,0 +1,73 @@
+﻿@using Weather
+@{
+    ViewData["Title"] = "Weather & Pollution Info";
+    WeatherCity city = ViewBag.WeatherInfo;
+
+    DateTimeOffset sunriseDateTimeOffset = DateTimeOffset.FromUnixTimeSeconds(city.Sys.Sunrise);
+    DateTime sunriseDateTime = sunriseDateTimeOffset.DateTime;
+
+    DateTimeOffset sunsetDateTimeOffset = DateTimeOffset.FromUnixTimeSeconds(city.Sys.Sunset);
+    DateTime sunsetDateTime = sunsetDateTimeOffset.DateTime;
+
+    var temp =city.Main.Temp-273;
+    var tempFeel =city.Main.FeelsLike-273; 
+
+}
+@model WeatherCity
+<link rel="stylesheet" href="~/wwwroot/css/images/main.css" asp-append-version="true" />
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Weather & Pollution Info</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+  </head>
+ <div id="bg-feed" style="height: 120vh;">
+   
+</div>
+
+ <body id="feed-bod" > 
+ <div id="video-gal" class="container" >
+     
+        
+<table class="table">
+    <tr>
+        <td>Temperature:</td>
+        <td>@temp.ToString("0.0")</td>
+    </tr>
+    <tr>
+        <td>Feels Like:</td>
+        <td>@tempFeel.ToString("0.0")</td>
+    </tr>
+    <tr>
+        <td>Pressure:</td>
+        <td>@city.Main.Pressure hPa</td>
+    </tr>
+    <tr>
+        <td>Humidity:</td>
+        <td>@city.Main.Humidity%</td>
+    </tr>
+    <tr>
+        <td>Wind Speed:</td>
+        <td>@city.Wind.Speed m/s</td>
+    </tr>
+    <tr>
+        <td>Cloudiness:</td>
+        <td>@city.Clouds.All%</td>
+    </tr>
+    <tr>
+        <td>Sunrise:</td>
+        <td>@sunriseDateTime.ToString("h:mm tt")</td>
+    </tr>
+    <tr>
+        <td>Sunset:</td>
+        <td>@sunsetDateTime.ToString("h:mm tt")</td>
+    </tr>
+</table>
+  
+     </div>
+    </body>
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+</html>

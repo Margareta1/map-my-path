@@ -15,6 +15,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\MapMyPathCore\MapMyPathCore.csproj" />
     <ProjectReference Include="..\MapMyPathLib\MapMyPathLib.csproj" />
   </ItemGroup>
 
