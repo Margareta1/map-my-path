@@ -9,65 +9,189 @@
     DateTimeOffset sunsetDateTimeOffset = DateTimeOffset.FromUnixTimeSeconds(city.Sys.Sunset);
     DateTime sunsetDateTime = sunsetDateTimeOffset.DateTime;
 
-    var temp =city.Main.Temp-273;
-    var tempFeel =city.Main.FeelsLike-273; 
+    var temp = city.Main.Temp - 273;
+    var tempFeel = city.Main.FeelsLike - 273;
+    var clouds = @city.Clouds.All;
 
+    //temp = 30;
+    //clouds = 80;
 }
 @model WeatherCity
-<link rel="stylesheet" href="~/wwwroot/css/images/main.css" asp-append-version="true" />
+
+
+
 <!DOCTYPE html>
 <html>
-  <head>
+<head>
     <title>Weather & Pollution Info</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
-  </head>
- <div id="bg-feed" style="height: 120vh;">
-   
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/weather.css" asp-append-version="true" />
+</head>
+<div id="bg-feed" style="height: 120vh;">
 </div>
 
- <body id="feed-bod" > 
- <div id="video-gal" class="container" >
-     
-        
-<table class="table">
-    <tr>
-        <td>Temperature:</td>
-        <td>@temp.ToString("0.0")</td>
-    </tr>
-    <tr>
-        <td>Feels Like:</td>
-        <td>@tempFeel.ToString("0.0")</td>
-    </tr>
-    <tr>
-        <td>Pressure:</td>
-        <td>@city.Main.Pressure hPa</td>
-    </tr>
-    <tr>
-        <td>Humidity:</td>
-        <td>@city.Main.Humidity%</td>
-    </tr>
-    <tr>
-        <td>Wind Speed:</td>
-        <td>@city.Wind.Speed m/s</td>
-    </tr>
-    <tr>
-        <td>Cloudiness:</td>
-        <td>@city.Clouds.All%</td>
-    </tr>
-    <tr>
-        <td>Sunrise:</td>
-        <td>@sunriseDateTime.ToString("h:mm tt")</td>
-    </tr>
-    <tr>
-        <td>Sunset:</td>
-        <td>@sunsetDateTime.ToString("h:mm tt")</td>
-    </tr>
-</table>
-  
-     </div>
-    </body>
-    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+
+<body id="feed-bod" scroll="no" style="overflow: hidden">
+    <div id="video-gal" class="container">
+
+
+        <table id="tablica" class="table">
+            <tr>
+                <td>Temperature:</td>
+                <td>@temp.ToString("0.0")</td>
+            </tr>
+            <tr>
+                <td>Feels Like:</td>
+                <td>@tempFeel.ToString("0.0")</td>
+            </tr>
+            <tr>
+                <td>Pressure:</td>
+                <td>@city.Main.Pressure hPa</td>
+            </tr>
+            <tr>
+                <td>Humidity:</td>
+                <td>@city.Main.Humidity%</td>
+            </tr>
+            <tr>
+                <td>Wind Speed:</td>
+                <td>@city.Wind.Speed m/s</td>
+            </tr>
+            <tr>
+                <td>Cloudiness:</td>
+                <td>@clouds%</td>
+            </tr>
+            <tr>
+                <td>Sunrise:</td>
+                <td>@sunriseDateTime.ToString("h:mm tt")</td>
+            </tr>
+            <tr>
+                <td>Sunset:</td>
+                <td>@sunsetDateTime.ToString("h:mm tt")</td>
+            </tr>
+        </table>
+
+        <div id="weather-icon" class="container" style="color:#334870 ">
+            <div id="sunny-rain" class="icon sun-shower">
+                <div class="cloud"></div>
+                <div class="sun">
+                    <div class="rays"></div>
+                </div>
+                <div class="rain"></div>
+            </div>
+            <div id="cloudy" class="icon cloudy">
+                <div class="cloud"></div>
+                <div class="cloud"></div>
+            </div>
+            <div id="sunny" class="icon sunny">
+                <div class="sun">
+                    <div class="rays"></div>
+                </div>
+            </div>
+            <div id="rainy" class="icon rainy">
+                <div class="cloud"></div>
+                <div class="rain"></div>
+            </div>
+            <div id="snowy" class="icon flurries">
+                <div class="cloud"></div>
+                <div class="snow">
+                    <div class="flake"></div>
+                    <div class="flake"></div>
+                </div>
+            </div>
+            <p class="text-weather" id="weather-rain"> It might rain soon! <br />  Be sure to bring your umbrella!</p>
+            <p class="text-weather" id="weather-sunny"> It's a beautiful day!' <br />  Ideal for route planning!</p>
+            <p class="text-weather" id="weather-snowy"> It could snow! <br />  Do you want to build a snowman?</p>
+            <p class="text-weather" id="weather-cold"> It's mighty cold out there! <br />  Be sure to keep warm!</p>
+            <p class="text-weather" id="weather-fine"> It's a fine, fine day! <br />  Explore, enjoy!</p>
+        </div>
+    </div>
+</body>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+
+<script>
+    $(document).ready(function() {
+
+        if (@temp > 10 && @clouds >= 80) {
+            $('#sunny-rain').show();
+            $('#cloudy').hide();
+            $('#sunny').hide();
+            $('#rainy').hide();
+            $('#snowy').hide();
+        } else if (@temp >= 20 && @temp <25 && @clouds <50) {
+            $('#sunny-rain').hide();
+            $('#cloudy').show();
+            $('#sunny').hide();
+            $('#rainy').hide();
+            $('#snowy').hide();
+        } else if (@clouds <40) {
+            $('#sunny-rain').hide();
+            $('#cloudy').hide();
+            $('#sunny').show();
+            $('#rainy').hide();
+            $('#snowy').hide();
+        } else if (@clouds >= 40) {
+            $('#sunny-rain').hide();
+            $('#cloudy').show();
+            $('#sunny').hide();
+            $('#rainy').hide();
+            $('#snowy').hide();
+        } else if (@temp >= 25 && @clouds >= 50) {
+            $('#sunny-rain').hide();
+            $('#cloudy').hide();
+            $('#sunny').hide();
+            $('#rainy').show();
+            $('#snowy').hide();
+        } else if (@clouds >= 80) {
+            $('#sunny-rain').hide();
+            $('#cloudy').hide();
+            $('#sunny').hide();
+            $('#rainy').show();
+            $('#snowy').hide();
+        } else if (@temp < 0 && @clouds >= 70) {
+            $('#sunny-rain').hide();
+            $('#cloudy').hide();
+            $('#sunny').hide();
+            $('#rainy').hide();
+            $('#snowy').show();
+        } 
+
+
+        if (@temp <0  && @clouds <= 40) {
+            $('#weather-cold').show();
+            $('#weather-rain').hide();
+            $('#weather-sunny').hide();
+            $('#weather-snowy').hide();
+            $('#weather-fine').hide();
+        } else if (@temp >= 5 && @clouds >= 80) {
+            $('#weather-cold').hide();
+            $('#weather-rain').show();
+            $('#weather-sunny').hide();
+            $('#weather-snowy').hide();
+            $('#weather-fine').hide();
+        } else if (@temp >= 25) {
+            $('#weather-cold').hide();
+            $('#weather-rain').hide();
+            $('#weather-sunny').show();
+            $('#weather-snowy').hide();
+            $('#weather-fine').hide();
+        } else if (@temp <0  && @clouds >= 70) {
+            $('#weather-cold').hide();
+            $('#weather-rain').hide();
+            $('#weather-sunny').hide();
+            $('#weather-snowy').show();
+            $('#weather-fine').hide();
+        } else {
+            $('#weather-fine').show();
+            $('#weather-cold').hide();
+            $('#weather-rain').hide();
+            $('#weather-sunny').hide();
+            $('#weather-snowy').hide();
+        }
+
+    });
+</script>
+
 </html>
