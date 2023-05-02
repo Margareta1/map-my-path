@@ -188,24 +188,97 @@
         opacity: 1
     }
 }
+.fake-button {
+   z-index:22;
+   position:relative;
+    background-color: #334870;
+    color: #ffffff;
+    border-radius: 15px;
+    cursor: pointer;
+    font-size: 13px;
+    text-align: center;
+    text-decoration: none;
+    border: none;
+    margin-top:-15%;
+    margin-left:45%;
+    width:10%;
+
+}
+
+.picture-container{
+    border-radius:50%;
+    max-width:350px;
+    max-height:350px;
+    min-width:200px;
+    min-height:200px;
+}
+.profile-container {
+    display: flex;
+    font-family: 'Montserrat', sans-serif;
+    text-align: center;
+    justify-content: center;
+    box-shadow: 0px 0px 10px #ccc;
+    width: 30%;
+    margin-bottom: 100px;
+}
+
+.profile-image img {
+    margin-top:10%;
+    min-width:50%;
+    border-radius:50%;
+ }
+
+.profile-form {
+    min-width:50%;    
+}
+.title {
+    text-align: center;
+    margin-top: 150px;
+    margin-bottom: 50px;
+    font-family: 'Montserrat', sans-serif;
+}
+.form-group {
+    margin-bottom: 10px;
+}
+
+label {
+    display: block;
+    font-weight: bold;
+}
+
+.btn-primary {
+    background-color: #007bff;
+    border-color: #007bff;
+}
+
+.btn-primary:hover {
+    background-color: #0069d9;
+    border-color: #0062cc;
+ }
+.btn-color-red{
+    color:red !important;
+}
+
 
 
 @media screen and (max-width: 780px) {
     .position-text {
-      
-        margin-top:60%;
+        margin-top: 60%;
         margin-left: 7%;
         color: #334870;
         z-index: 10;
         position: absolute;
     }
+
     .display {
         font-weight: 300;
         font-size: 10vw;
     }
+
     .subtext {
         font-size: 6vw;
     }
+
     .middle {
         width: 30%;
         margin-top: 30%;
@@ -222,14 +295,14 @@
     .text {
         font-size: 3vw;
     }
-    
+
     .button {
-       display:none;
+        display: none;
     }
 
     .button-hidden {
-        display:block;
-        margin:auto;
+        display: block;
+        margin: auto;
         border: hidden;
         border-radius: 10px 10px 10px 10px;
         background-color: #334870;
@@ -242,16 +315,20 @@
         transform: translateY(0);
     }
 
-    .button-hidden:hover {
-        transition: 1000ms;
-        padding: 10%;
-        transform: translateY(-0px);
-        color: #334870;
-        background-color: white;
-        border: solid 2px #0066cc;
-    }
+        .button-hidden:hover {
+            transition: 1000ms;
+            padding: 10%;
+            transform: translateY(-0px);
+            color: #334870;
+            background-color: white;
+            border: solid 2px #0066cc;
+        }
 
     .slideshow-container:hover::before .middle {
         opacity: 0.8;
+    }
+
+    .profile-container {
+        width: 70%;
     }
 }
