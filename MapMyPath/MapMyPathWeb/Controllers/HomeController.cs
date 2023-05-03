@@ -1,5 +1,5 @@
-﻿using MapMyPathCore.Services;
-using MapMyPathWeb.Models;
+﻿using MapMyPathWeb.Models;
+using MapMyPathWeb.Services;
 using Microsoft.AspNetCore.Mvc;
 using System.Diagnostics;
 
