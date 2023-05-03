@@ -13,5 +13,14 @@ namespace MapMyPathWeb.Controllers
         {
             return View();
         }
+        public IActionResult EditUser()
+        {
+            return View();
+        }
+
+        public IActionResult DeleteUser()
+        {
+            return View();
+        }
     }
 }

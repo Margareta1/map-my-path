@@ -24,6 +24,11 @@ namespace MapMyPathWeb.Controllers
             return View();
         }
 
+        public IActionResult About()
+        {
+            return View();
+        }
+
         public IActionResult LiveFeed()
         {
             return View();
@@ -35,7 +40,7 @@ namespace MapMyPathWeb.Controllers
             await ws;
             var weather = ws.Result;
             ViewBag.WeatherInfo = weather;
-            return View(weather);
+            return View();
         }
 
         public IActionResult Routes()

@@ -1,0 +1,82 @@
+﻿
+
+@model MapMyPathLib.AppUser
+
+@{
+    ViewData["Title"] = "EditUser";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h3 class="title">Edit your profile information</h3>
+
+<div class="row justify-content-center ">
+    <div class="profile-container ">
+        <div class="profile-image">
+            <div class="picture-container">
+            <img id="profile-picture-placeholder" src="~/Images/profile-photo.jpg" width="150" height="150" alt="Profile Picture">
+
+            <label id="btnChangeProfilePic" for="file-upload" class="fake-button">
+                🗸
+                <input id="file-upload" type="file" name="file" style="display:none" />
+            </label>
+            
+        </div>
+
+        <div class="profile-form d-flex justify-content-center">
+        <form asp-action="EditUser">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="FirstName" class="control-label"></label>
+                <input asp-for="FirstName" class="form-control" />
+                <span asp-validation-for="FirstName" class="text-danger"></span>
+            </div>
+                <div class="form-group">
+                
+                <label asp-for="LastName" class="control-label"></label>
+                <input asp-for="LastName" class="form-control" />
+                <span asp-validation-for="LastName" class="text-danger"></span>
+            </div>
+                <div class="form-group">
+                <label asp-for="UserName" class="control-label"></label>
+                <input asp-for="UserName" class="form-control" />
+                <span asp-validation-for="UserName" class="text-danger"></span>
+            </div>
+                <div class="form-group">
+                <label asp-for="Password" class="control-label"></label>
+                <input asp-for="Password" type="password" class="form-control" />
+                <span asp-validation-for="Password" class="text-danger"></span>
+            </div>
+            
+            <div>
+
+            </div>
+            <div class="form-group text-center">
+                    <input id="btnSave" type="submit" value="Save" class="btn btn-primary m-2" />
+                    <br />
+                        @Html.ActionLink("Delete your profile", "DeleteUser", "User")
+
+                    </div>
+        </form>
+        </div>
+    </div>
+</div>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
+<script>
+    const fileInput = document.getElementById('file-upload');
+    const placeholder = document.getElementById('profile-picture-placeholder');
+    fileInput.addEventListener('change', (event) => {
+        const file = event.target.files[0];
+        const reader = new FileReader();
+
+        reader.addEventListener('load', (event) => {
+            placeholder.setAttribute('src', event.target.result);
+        });
+
+        reader.readAsDataURL(file);
+    });
+   
+</script>

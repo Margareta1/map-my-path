@@ -19,17 +19,14 @@
             <div>
                 <nav>
                     <ul>
-                        <li class="navli-l">
+                    <li class="navli-l0" style="margin: auto">
                             <a href="@Url.Action("Index", "Home")">
-                                <img src="~/Images/logo.png" title="logo" alt="no image" height="70" width="70"/>
+                                <img src="~/Images/logo.png" title="Home" alt="no image" height="100" width="100"/>
                             </a>
-
                         </li>
-                        <li class="navli-l ">@Html.ActionLink("Home", "Index", "Home", new { @class = "action-link" })</li>
-                        <li class="navli-l ">@Html.ActionLink("About", "About", "Home", new { @class = "action-link" })</li>
-                        <li class="navli-l ">@Html.ActionLink("Placeholder", "About", "Home", new { @class = "action-link" })</li>
+                        
                        
-                        <li class="navli-l " style="margin-left: auto">@Html.ActionLink("Sign in", "SignIn", "User", new { @class = "action-link" })</li>
+                        <li class="navli-l1" style="margin-left: auto">@Html.ActionLink("Sign in", "SignIn", "User", new { @class = "action-link" })</li>
                     </ul>
                 <div id="menuToggle">
                   
@@ -57,7 +54,11 @@
     </div>
 
     <footer class="footer">
-        <strong>  &copy; @DateTime.Now.Year  - MapMyPath - <a asp-area="" asp-controller="Home" asp-action="Privacy" style="text-decoration-none">Privacy</a></strong>
+        <strong>
+            &copy; @DateTime.Now.Year  - MapMyPath -
+            @Html.ActionLink("About", "About", "Home")
+         -   <a asp-area="" asp-controller="Home" asp-action="Privacy" style="text-decoration-none color:white">Privacy</a>
+        </strong>
     </footer>
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
