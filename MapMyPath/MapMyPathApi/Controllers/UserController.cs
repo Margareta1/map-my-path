@@ -10,9 +10,11 @@ namespace MapMyPathApi.Controllers
     {
 
         private AccountService accountService;
+        private RouteService routeService;
         public UserController()
         {
             accountService = new AccountService();
+            routeService = new RouteService();
         }
 
         [HttpGet]
@@ -24,8 +26,7 @@ namespace MapMyPathApi.Controllers
             try
             {
                 usersList = accountService.GetUsers().ToList();
-                var output = JsonConvert.SerializeObject(usersList);
-                return new JsonResult(JsonConvert.DeserializeObject(output));
+                return new JsonResult(usersList);
             }
             catch (Exception e)
             {
@@ -102,11 +103,34 @@ namespace MapMyPathApi.Controllers
 
         }
 
-        //[Route("getuserinfo/{username}")]
-        //public JsonResult GetUserInfo(string username)
-        //{
-        //    var user = accountService.GetUserById()
+        [Route("createroute/{username}")]
+        public JsonResult CreateRoute(string username)
+        {
+            try
+            {
+                string routeId = routeService.CreateRoute(username);
+                return new JsonResult(routeId);
+            }
+            catch (Exception e)
+            {
+                return new JsonResult("Error");
+            }
+        }
 
-        //}
+        [Route("addstoppingpoint/{routeid}/{lat}/{lon}/{order}")]
+        public JsonResult AddStoppingPoint(string routeId, double lat, double lon, int order)
+        {
+
+                if (routeService.AddStoppingPoint(routeId, lat, lon, order))
+                {
+                    return new JsonResult("Success");
+                }
+                else
+                {
+                    return new JsonResult("Error");
+                }
+
+        }
+
     }
 }
