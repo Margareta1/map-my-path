@@ -6,7 +6,7 @@ namespace MapMyPathWeb.Services
 {
     public class WeatherService
     {
-        public async Task<WeatherCity> GetWeatherFromOpenWeatherApi(string city)
+        public async Task<WeatherCity?> GetWeatherFromOpenWeatherApi(string city)
         {
             string apiKey = "cda5d4bb347f5cd215128a802a0419b6";
             string url = "https://api.openweathermap.org/data/2.5/weather?q=" + city + "&appid=" + apiKey;
