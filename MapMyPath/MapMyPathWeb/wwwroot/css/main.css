@@ -1,21 +1,26 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300&display=swap');
 
 .card-body-f {
-    border-color: #999;
-    border-radius: 18px;
     border-style: solid;
-    border-width: 1px;
     width: 100%;
     margin-right: 0;
-    padding: 15px;
     overflow: hidden;
     background-color: #334870;
-    outline: 2px solid #CCC;
-    border: 2px solid #999;
+    box-shadow: -6px -4px 18px -3px #344870;
 }
-
+.title-cam-feed{
+font-weight:700;
+text-align:center;
+}
+.text-cam-feed{
+    margin-top: 5%;
+    margin-bottom: 7%;
+    margin-left:3%;
+    font-size:1.5rem;
+    
+}
 #video-gal.container {
-    margin-top: 15%;
+    margin-top: 10%;
     z-index: 1;
     position: relative;
     margin-bottom: 10%;
@@ -25,6 +30,7 @@
     padding: 30px;
     color: #334870;
     box-shadow: -6px -4px 18px -3px #344870;
+    font-family: 'Montserrat', sans-serif;
 }
 
 #weather-icon.container {
