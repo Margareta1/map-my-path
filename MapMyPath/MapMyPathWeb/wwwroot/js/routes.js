@@ -301,6 +301,10 @@ window.onload = function () {
     //calculateRoute();
 };
 
+let retryCount = 0;
+const maxRetryCount = 3;  
+const retryDelay = 2000;
+
 //interests
 async function fetchPlacesOfInterest(location) {
     const interests = ['restaurant', 'museum', 'park', 'shopping_mall', 'atm', 'cafe', 'church', 'zoo', 'taxi_stand', 'synagogue', 'stadium', 'night_club'];
@@ -321,9 +325,22 @@ async function fetchPlacesOfInterest(location) {
                     resolve(results);
                 } else if (status === google.maps.places.PlacesServiceStatus.ZERO_RESULTS) {
                     resolve([]); // If no places of interest, empty array
-                } else {
-                    reject(new Error(`Places API request failed with status: ${status}`));
                 }
+                else if (status === google.maps.places.PlacesServiceStatus.OVER_QUERY_LIMIT) {
+                    // If rate limit is exceeded, wait and try again
+                    setTimeout(() => {
+                        retryCount++;
+                        if (retryCount <= maxRetryCount) {
+                            fetchPlacesOfInterest(location).then(resolve).catch(reject);
+                        } else {
+                            reject(new Error(`Place fetching failed after ${maxRetryCount} attempts: ${status}`));
+                        }
+                    }, retryDelay);
+                } else {
+                    reject(new Error(`Place fetching failed: ${status}`));
+                }
+
+             
             });
         });
 
