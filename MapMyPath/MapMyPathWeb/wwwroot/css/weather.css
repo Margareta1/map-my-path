@@ -9,20 +9,28 @@ html {
     }
 
 .text-weather {
-    font-size: 28px;
     z-index: 1;
     color: white;
+    font-size: 2rem;
+    font-family: 'Montserrat', sans-serif;
+    margin-left:10%;
 }
 #weather-icon, .table {
     display: inline-block;
     vertical-align: top;
-    width: 600px;
+    width: 50%;
 }
 #weather-icon{
-    height: 350px;
+    height: 450px;
 }
 #tablica {
-    width: 350px;
+    width: 35%;
+    font-size: 1.5rem;
+    margin-left: 2%;
+    margin-top:1%;
+    margin-bottom:2%;
+    margin-right: 8%;
+    font-family: 'Montserrat', sans-serif;
 }
 
 h1 {
@@ -48,7 +56,7 @@ p {
     display: inline-block;
     width: 12em;
     height: 10em;
-    font-size: 1em; /* control icon size here */
+    font-size: 1.5em; /* control icon size here */
 }
 
 .cloud {
@@ -322,4 +330,15 @@ p {
         background: #fff;
         opacity: 0.2;
     }
+}
+@media screen and (max-width: 780px) {
+    #weather-icon, .table {
+        width: 100%;
+    }
+    #tablica{
+        text-align:center;
+    }
+
+   
+
 }
