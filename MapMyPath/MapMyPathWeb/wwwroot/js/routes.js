@@ -302,43 +302,42 @@ window.onload = function () {
 };
 
 //interests
-const interests = ['restaurant', 'museum', 'park', 'shopping_mall', 'atm', 'cafe', 'church', 'zoo', 'taxi_stand', 'synagogue', 'stadium', 'night_club',];
+async function fetchPlacesOfInterest(location) {
+    const interests = ['restaurant', 'museum', 'park', 'shopping_mall', 'atm', 'cafe', 'church', 'zoo', 'taxi_stand', 'synagogue', 'stadium', 'night_club'];
+    const places = [];
 
-async function fetchPlacesOfInterest(point) {
     const service = new google.maps.places.PlacesService(map);
 
-    // Create an array to store all the Promises returned by nearbySearch
-    const promises = [];
-
-    for (const interest of interests) {
+    for (let interest of interests) {
         const request = {
-            location: point,
+            location: location,
             radius: '500',
-            type: [interest],
-            rankBy: google.maps.places.RankBy.PROMINENCE
+            type: [interest]
         };
 
-        // Create a new Promise for each nearbySearch request
-        const promise = new Promise((resolve, reject) => {
+        const results = await new Promise((resolve, reject) => {
             service.nearbySearch(request, (results, status) => {
                 if (status === google.maps.places.PlacesServiceStatus.OK) {
-                    // Only take the top 1 places
-                    resolve(results.slice(0, 1));
+                    resolve(results);
                 } else if (status === google.maps.places.PlacesServiceStatus.ZERO_RESULTS) {
-                    resolve([]);
+                    resolve([]); // If no places of interest, empty array
                 } else {
-                    console.error('Places API request failed with status: ' + status);
-                    reject(status);
+                    reject(new Error(`Places API request failed with status: ${status}`));
                 }
             });
         });
 
-        promises.push(promise);
+        // Sort results by rating in descending order and top 1
+        const sortedResults = results.sort((a, b) => b.rating - a.rating).slice(0, 1);
+        places.push(...sortedResults);
     }
 
-    const allPlaces = await Promise.all(promises);
-    return allPlaces.flat();
+    // filter duplicates
+    const uniquePlaces = Array.from(new Set(places.map(place => place.place_id))).map(id => places.find(place => place.place_id === id));
+
+    return uniquePlaces;
 }
+
 function delay(ms) {
     return new Promise(resolve => setTimeout(resolve, ms));
 }
