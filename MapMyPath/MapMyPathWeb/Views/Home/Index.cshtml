@@ -21,8 +21,8 @@
                 <div class="middle">
                     <p class="text">Discover new city with MapMyPath's predefined routes. From iconic landmarks to hidden gems, we've got you covered. 
                         Choose a route that suits your interests and let us guide you to the best sights and experiences your destination has to offer.</p>
-                    <input type="button" name="button" class="button" value="Explore the routs of Zagreb" />
-                    <input type="button" name="button" class="button-hidden" value="Explore" />
+                    <input type="button" name="button" class="button" value="Explore the routes of Zagreb" onclick="@("window.location.href='" + @Url.Action("Routes", "Home") + "'")"/>
+                    <input type="button" name="button" class="button-hidden" value="Explore"  />
                 </div>
                 <div class="right-half"></div>
             </div>
@@ -65,4 +65,3 @@
         <br>
 </div>
 </div>
-</body>

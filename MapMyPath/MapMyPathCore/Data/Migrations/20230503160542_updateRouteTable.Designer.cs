@@ -4,6 +4,7 @@ using MapMyPathCore.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,10 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace MapMyPathCore.Data.Migrations
 {
     [DbContext(typeof(MapMyPathCoreContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20230503160542_updateRouteTable")]
+    partial class updateRouteTable
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -111,21 +113,18 @@ namespace MapMyPathCore.Data.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("uniqueidentifier");
 
-                    b.Property<double>("Latitude")
-                        .HasColumnType("float");
-
-                    b.Property<double>("Longitude")
-                        .HasColumnType("float");
-
-                    b.Property<Guid>("RouteId")
+                    b.Property<Guid?>("RouteIdRoute")
                         .HasColumnType("uniqueidentifier");
 
-                    b.Property<int>("StoppingOrder")
-                        .HasColumnType("int");
+                    b.Property<double>("latitude")
+                        .HasColumnType("float");
+
+                    b.Property<double>("longitude")
+                        .HasColumnType("float");
 
                     b.HasKey("IdCoordinate");
 
-                    b.HasIndex("RouteId");
+                    b.HasIndex("RouteIdRoute");
 
                     b.ToTable("Coordinate");
                 });
@@ -136,10 +135,15 @@ namespace MapMyPathCore.Data.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("uniqueidentifier");
 
+                    b.Property<Guid>("StartPointId")
+                        .HasColumnType("uniqueidentifier");
+
                     b.Property<Guid>("UserId")
                         .HasColumnType("uniqueidentifier");
 
                     b.HasKey("IdRoute");
+
+                    b.HasIndex("StartPointId");
 
                     b.ToTable("Route");
                 });
@@ -283,13 +287,20 @@ namespace MapMyPathCore.Data.Migrations
 
             modelBuilder.Entity("MapMyPathLib.Coordinate", b =>
                 {
-                    b.HasOne("MapMyPathLib.Route", "Route")
+                    b.HasOne("MapMyPathLib.Route", null)
+                        .WithMany("StoppingPoints")
+                        .HasForeignKey("RouteIdRoute");
+                });
+
+            modelBuilder.Entity("MapMyPathLib.Route", b =>
+                {
+                    b.HasOne("MapMyPathLib.Coordinate", "StartPoint")
                         .WithMany()
-                        .HasForeignKey("RouteId")
+                        .HasForeignKey("StartPointId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.Navigation("Route");
+                    b.Navigation("StartPoint");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>
@@ -341,6 +352,11 @@ namespace MapMyPathCore.Data.Migrations
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
+                });
+
+            modelBuilder.Entity("MapMyPathLib.Route", b =>
+                {
+                    b.Navigation("StoppingPoints");
                 });
 #pragma warning restore 612, 618
         }

@@ -2,7 +2,7 @@
 using Newtonsoft.Json;
 using Weather;
 
-namespace MapMyPathCore.Services
+namespace MapMyPathWeb.Services
 {
     public class WeatherService
     {

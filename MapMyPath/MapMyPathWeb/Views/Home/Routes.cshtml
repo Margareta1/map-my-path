@@ -1,0 +1,23 @@
+﻿@{
+    ViewData["Title"] = "Routes";
+}
+<script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
+<script async
+        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB9Wyv8ha4LLUyDD9sPdtb7svNEl1LeMlw&callback=initMap">
+</script>
+
+<div class="container" id="mapsContainer">
+    <div id="map"></div>
+    <div id="renderRoute">
+        <span>Once you've selected all your destinations, click here:'</span>
+        <button class="btn btn-dark" id="btnRender">Render route</button>
+        <span>or:</span>
+        <button class="btn btn-dark" id="btnRefresh">Refresh</button>
+
+    </div>
+</div>
+
+
+<script src="~/js/routes.js"></script>
+
+

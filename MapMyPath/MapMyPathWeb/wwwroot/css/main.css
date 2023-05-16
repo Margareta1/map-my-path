@@ -380,8 +380,4 @@ label {
     .slideshow-container:hover::before .middle {
         opacity: 0.8;
     }
-
-    .profile-container {
-        width: 70%;
-    }
 }
