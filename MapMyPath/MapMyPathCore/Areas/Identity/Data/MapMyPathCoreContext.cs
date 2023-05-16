@@ -9,7 +9,7 @@ namespace MapMyPathCore.Data;
 public class MapMyPathCoreContext : IdentityDbContext<MapMyPathCoreUser>
 {
     //private static readonly string SERVER = "Server=tcp:mapmypathoicar.database.windows.net,1433;Initial Catalog=MapMyPath;Persist Security Info=False;User ID=PPPK10@racunarstvo.hr;Password=8&Np=D#xn;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=True;Authentication=\"Active Directory Password\";";
-    private static readonly string SERVER = "Server=.\\SQLEXPRESS;Database=OICAR;Uid=sa;Pwd=SQL;Trusted_Connection=True;MultipleActiveResultSets=true;TrustServerCertificate=True";
+    private static readonly string SERVER = "Server=tcp:oicar.database.windows.net,1433;Initial Catalog=oicar;Persist Security Info=False;User ID=PPPK1@racunarstvo.hr;Password=Yur21286;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Authentication=\"Active Directory Password\";";
 
     public MapMyPathCoreContext(DbContextOptions<MapMyPathCoreContext> options)
         : base(options)
