@@ -42,5 +42,30 @@ namespace MapMyPathCore.Services
             }
             
         }
+
+        public List<MapMyPathLib.Route> GetRoutesForUser(string username)
+        {
+            try
+            {
+                var userId = Guid.Parse(CONTEXT.Users.FirstOrDefault(x=>x.UserName==username).Id);
+                return CONTEXT.Route.Where(x => x.UserId == userId).ToList();
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+        }
+
+        public List<Coordinate> GetCoordinatesForRoute(string routeId)
+        {
+            try
+            {
+                return CONTEXT.Coordinate.Where(x => x.RouteId == Guid.Parse(routeId)).ToList();
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+        }
     }
 }
