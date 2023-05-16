@@ -203,6 +203,9 @@ async function calculateRoute() {
             let uniquePlaces = {};
 
             for (const point of points) {
+                //console.log("Starting...");
+                await delay(200);
+                //console.log("This message is displayed after 2 seconds");
                 try {
                     const places = await fetchPlacesOfInterest(point);
 
@@ -335,4 +338,7 @@ async function fetchPlacesOfInterest(point) {
 
     const allPlaces = await Promise.all(promises);
     return allPlaces.flat();
+}
+function delay(ms) {
+    return new Promise(resolve => setTimeout(resolve, ms));
 }
