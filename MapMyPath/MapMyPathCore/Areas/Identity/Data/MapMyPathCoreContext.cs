@@ -8,8 +8,9 @@ namespace MapMyPathCore.Data;
 
 public class MapMyPathCoreContext : IdentityDbContext<MapMyPathCoreUser>
 {
-    //private static readonly string SERVER = "Server=tcp:mapmypathoicar.database.windows.net,1433;Initial Catalog=MapMyPath;Persist Security Info=False;User ID=PPPK10@racunarstvo.hr;Password=8&Np=D#xn;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=True;Authentication=\"Active Directory Password\";";    
+    //private static readonly string SERVER = "Server=tcp:mapmypathoicar.database.windows.net,1433;Initial Catalog=MapMyPath;Persist Security Info=False;User ID=PPPK10@racunarstvo.hr;Password=8&Np=D#xn;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=True;Authentication=\"Active Directory Password\";";
     private static readonly string SERVER = "Server=.\\SQLEXPRESS;Database=OICAR;Uid=sa;Pwd=SQL;Trusted_Connection=True;MultipleActiveResultSets=true;TrustServerCertificate=True";
+
     public MapMyPathCoreContext(DbContextOptions<MapMyPathCoreContext> options)
         : base(options)
     {
@@ -17,6 +18,7 @@ public class MapMyPathCoreContext : IdentityDbContext<MapMyPathCoreUser>
 
     public DbSet<Coordinate> Coordinate { get; set; }
     public DbSet<MapMyPathLib.Route> Route { get; set; }
+
     protected override void OnModelCreating(ModelBuilder builder)
     {
         base.OnModelCreating(builder);
@@ -24,6 +26,7 @@ public class MapMyPathCoreContext : IdentityDbContext<MapMyPathCoreUser>
         // For example, you can rename the ASP.NET Identity table names and more.
         // Add your customizations after calling base.OnModelCreating(builder);
     }
+
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
     {
         optionsBuilder.UseSqlServer(SERVER);
