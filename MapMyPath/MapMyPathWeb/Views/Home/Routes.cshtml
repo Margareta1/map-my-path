@@ -9,13 +9,14 @@
 <head>
     <link rel="stylesheet" href="~/css/weather.css" asp-append-version="true" />
 </head>
-<div class="container" id="mapsContainer">
+<div id="bg-feed"></div>
+<div class="container" id="mapsContainer" >
     <div id="map"></div>
     <div id="renderRoute">
-        <span>Once you've selected all your destinations, click here:'</span>
-        <button class="btn btn-dark" id="btnRender">Render route</button>
+        <span>Once you've selected all your destinations, click here:</span>
+        <button class="btn btn-primary" id="btnRender">Render route</button>
         <span>or:</span>
-        <button class="btn btn-dark" id="btnRefresh">Refresh</button>
+        <button class="btn btn-primary" id="btnRefresh">Refresh</button>
 
     </div>
 </div>
