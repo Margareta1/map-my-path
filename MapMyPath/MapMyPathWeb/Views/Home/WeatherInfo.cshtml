@@ -40,11 +40,11 @@
         <table id="tablica" class="table">
             <tr>
                 <td>Temperature:</td>
-                <td>@temp.ToString("0.0")</td>
+                <td>@temp.ToString("0.0") °C</td>
             </tr>
             <tr>
                 <td>Feels Like:</td>
-                <td>@tempFeel.ToString("0.0")</td>
+                <td>@tempFeel.ToString("0.0") °C</td>
             </tr>
             <tr>
                 <td>Pressure:</td>
@@ -52,7 +52,7 @@
             </tr>
             <tr>
                 <td>Humidity:</td>
-                <td>@city.Main.Humidity%</td>
+                <td>@city.Main.Humidity %</td>
             </tr>
             <tr>
                 <td>Wind Speed:</td>
@@ -60,15 +60,15 @@
             </tr>
             <tr>
                 <td>Cloudiness:</td>
-                <td>@clouds%</td>
+                <td>@clouds %</td>
             </tr>
             <tr>
                 <td>Sunrise:</td>
-                <td>@sunriseDateTime.ToString("h:mm tt")</td>
+                <td>@sunriseDateTime.ToString("h:mm tt") AM</td>
             </tr>
             <tr>
                 <td>Sunset:</td>
-                <td>@sunsetDateTime.ToString("h:mm tt")</td>
+                <td>@sunsetDateTime.ToString("h:mm tt") PM</td>
             </tr>
         </table>
 

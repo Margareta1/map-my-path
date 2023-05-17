@@ -55,8 +55,8 @@
                         Find the best places to eat and explore with MapMyPath. Our app guides you to popular and unique spots with user reviews and ratings.
                         Trust us to lead you to a memorable experience. Start exploring today!
                     </p>
-                    <input type="button" name="button" class="button" value="Discover the Best Of the City" />
-                    <input type="button" name="button" class="button-hidden" value="Discover" />
+                        <input type="button" name="button" class="button" value="Discover the Best Of the City" onclick="@("window.location.href='" + @Url.Action("Discover", "Home") + "'");" />
+                        <input type="button" name="button" class="button-hidden" value="Discover" />
                 </div>
             </div>
             <a class="prev" onclick="plusSlides(-1)">&#10094;</a>

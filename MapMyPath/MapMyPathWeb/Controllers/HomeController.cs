@@ -35,6 +35,10 @@ namespace MapMyPathWeb.Controllers
         {
             return View();
         }
+        public IActionResult Discover()
+        {
+            return View();
+        }
 
         public async Task<IActionResult> WeatherInfo()
         {
