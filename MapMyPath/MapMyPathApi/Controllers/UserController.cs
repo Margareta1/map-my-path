@@ -35,6 +35,7 @@ namespace MapMyPathApi.Controllers
 
         }
 
+        [HttpGet]
         [Route("adduser/{username}/{password}/{firstname}/{lastname}")]
         public JsonResult AddUser(string username, string password, string firstName, string lastName)
         {
@@ -66,21 +67,22 @@ namespace MapMyPathApi.Controllers
 
         }
 
-
+        [HttpGet]
         [Route("validateuser/{username}/{password}")]
         public JsonResult ValidateUser(string username, string password)
         {
             if (accountService.ValidateUser(username, password))
             {
-                return new JsonResult("Yes");
+                return new JsonResult("Success");
             }
             else
             {
-                return new JsonResult("No");
+                return new JsonResult("Error");
             }
 
         }
 
+        [HttpGet]
         [Route("deleteuser/{username}")]
         public JsonResult DeleteUser(string username)
         {
@@ -103,6 +105,7 @@ namespace MapMyPathApi.Controllers
 
         }
 
+        [HttpGet]
         [Route("createroute/{username}")]
         public JsonResult CreateRoute(string username)
         {
@@ -117,20 +120,53 @@ namespace MapMyPathApi.Controllers
             }
         }
 
+        [HttpGet]
         [Route("addstoppingpoint/{routeid}/{lat}/{lon}/{order}")]
         public JsonResult AddStoppingPoint(string routeId, double lat, double lon, int order)
         {
 
-                if (routeService.AddStoppingPoint(routeId, lat, lon, order))
-                {
-                    return new JsonResult("Success");
-                }
-                else
-                {
-                    return new JsonResult("Error");
-                }
+            if (routeService.AddStoppingPoint(routeId, lat, lon, order))
+            {
+                return new JsonResult("Success");
+            }
+            else
+            {
+                return new JsonResult("Error");
+            }
 
         }
 
+        [Route("getuserroutes/{username}")]
+        [HttpGet]
+        public JsonResult GetUserRoutes(string username)
+        {
+            try
+            {
+                var routes = routeService.GetRoutesForUser(username);
+                return new JsonResult(routes);
+            }
+            catch (Exception)
+            {
+                return new JsonResult("Error");
+            }
+
+
+        }
+
+        [HttpGet]
+        [Route("getcoordinatesforroute/{routeid}")]
+        public JsonResult GetCoordinatesForRoute(string routeId)
+        {
+            try
+            {
+                var coordinates = routeService.GetCoordinatesForRoute(routeId);
+                return new JsonResult(coordinates);
+            }
+            catch (Exception)
+            {
+                return new JsonResult("Error");
+            }
+
+        }
     }
 }

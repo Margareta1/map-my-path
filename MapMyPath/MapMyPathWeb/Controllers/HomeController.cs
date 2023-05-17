@@ -9,11 +9,13 @@ namespace MapMyPathWeb.Controllers
     {
         private readonly ILogger<HomeController> _logger;
         private readonly TaxiService _taxiService;
+        private AccountService _accountService;
 
         public HomeController(ILogger<HomeController> logger)
         {
             _logger = logger;
             _taxiService = new TaxiService();
+            _accountService = new AccountService();
         }
 
         public IActionResult Index()
