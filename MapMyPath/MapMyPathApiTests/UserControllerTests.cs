@@ -20,7 +20,6 @@ namespace MapMyPathApiTests
         [SetUp]
         public void Setup()
         {
-            // Initialize the mock account service and the user controller
             userController = new UserController();
         }
 
@@ -54,7 +53,6 @@ namespace MapMyPathApiTests
             Assert.That(resultDeserialized == "Success");
 
         }
-
 
     }
 }

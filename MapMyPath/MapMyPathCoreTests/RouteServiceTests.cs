@@ -16,7 +16,6 @@ namespace MapMyPathCoreTests
         [SetUp]
         public void Setup()
         {
-            // Initialize the mock account service and the user controller
             service = new RouteService();
         }
 

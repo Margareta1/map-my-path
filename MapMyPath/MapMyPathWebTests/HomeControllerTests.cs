@@ -18,14 +18,12 @@ namespace MapMyPathWebTests
         public void Setup()
         {
             controller = new HomeController(new TestLogger<HomeController>());
-
         }
 
         [Test]
         public void Index_ReturnsViewResult()
         {
             var result = controller.Index();
-
             Assert.IsInstanceOf<ViewResult>(result);
             Assert.IsNotNull(result);
         }       
@@ -54,8 +52,6 @@ namespace MapMyPathWebTests
 
             Assert.IsInstanceOf<ViewResult>(result); 
             Assert.IsNotNull(result);
-
         }
-
     }
 }
