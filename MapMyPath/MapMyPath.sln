@@ -9,7 +9,13 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MapMyPathCore", "MapMyPathC
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MapMyPathApi", "MapMyPathApi\MapMyPathApi.csproj", "{21DCB297-B310-4274-BD82-93A2C3CF1E6B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MapMyPathLib", "MapMyPathLib\MapMyPathLib.csproj", "{3F1782B2-6EC5-4311-9CA0-7E07D4CCEB2A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MapMyPathLib", "MapMyPathLib\MapMyPathLib.csproj", "{3F1782B2-6EC5-4311-9CA0-7E07D4CCEB2A}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MapMyPathApiTests", "MapMyPathApiTests\MapMyPathApiTests.csproj", "{60F58A42-F546-4E2B-98DD-8495D41A0986}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MapMyPathCoreTests", "MapMyPathCoreTests\MapMyPathCoreTests.csproj", "{2B4550F8-F327-40BF-A027-932DA259325C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MapMyPathWebTests", "MapMyPathWebTests\MapMyPathWebTests.csproj", "{E2F266BA-C930-4130-B9DA-B74DB27288C9}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -33,6 +39,18 @@ Global
 		{3F1782B2-6EC5-4311-9CA0-7E07D4CCEB2A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{3F1782B2-6EC5-4311-9CA0-7E07D4CCEB2A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{3F1782B2-6EC5-4311-9CA0-7E07D4CCEB2A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{60F58A42-F546-4E2B-98DD-8495D41A0986}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{60F58A42-F546-4E2B-98DD-8495D41A0986}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{60F58A42-F546-4E2B-98DD-8495D41A0986}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{60F58A42-F546-4E2B-98DD-8495D41A0986}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2B4550F8-F327-40BF-A027-932DA259325C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2B4550F8-F327-40BF-A027-932DA259325C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2B4550F8-F327-40BF-A027-932DA259325C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2B4550F8-F327-40BF-A027-932DA259325C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E2F266BA-C930-4130-B9DA-B74DB27288C9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E2F266BA-C930-4130-B9DA-B74DB27288C9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E2F266BA-C930-4130-B9DA-B74DB27288C9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E2F266BA-C930-4130-B9DA-B74DB27288C9}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
