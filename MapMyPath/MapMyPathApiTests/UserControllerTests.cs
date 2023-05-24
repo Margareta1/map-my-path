@@ -41,7 +41,7 @@ namespace MapMyPathApiTests
         public void AddUser_ReturnsSuccess()
         {
             //Arrange
-            var appUser = new AppUser { Id = new Guid(), FirstName = "Jim", LastName = "Doe", UserName = "jimmy.doe@gmail.com", Password = "john22", CreatedAt = DateTime.Now, IsDeleted = 0 };
+            var appUser = new AppUser { Id = new Guid(), FirstName = "Jim", LastName = "Doe", UserName = "jimmy.do@gmail.com", Password = "john22", CreatedAt = DateTime.Now, IsDeleted = 0 };
 
             //Act
 
