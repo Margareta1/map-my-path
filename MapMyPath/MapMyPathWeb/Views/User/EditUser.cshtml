@@ -9,6 +9,8 @@
 
 <h3 class="title">Edit your profile information</h3>
 
+    @using (Html.BeginForm())
+    {
 <div class="row justify-content-center ">
     <div class="profile-container ">
         <div class="profile-image">
@@ -61,6 +63,7 @@
     </div>
 </div>
 </div>
+}
 
 @section Scripts {
     @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
