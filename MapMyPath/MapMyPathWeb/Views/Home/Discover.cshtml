@@ -4,6 +4,8 @@
 }
 
 <link rel="stylesheet" href="~/wwwroot/css/images/main.css" asp-append-version="true" />
+<script src="~/js/site.js"></script>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -24,64 +26,19 @@
                 Welcome to Zagreb, a city full of rich history and captivating landmarks! We are delighted to present to you four carefully curated routes that offer the best way to explore and discover the wonders of Zagreb.
             Each route is thoughtfully designed to ensure you experience the essence of this beautiful city and its monumental destinations. Allow us to guide you through the heart of Zagreb with these unforgettable routes, 
             tailored to suit your preferences and time constraints.</p>
-        <div class="parent">
-     
-        <div class="route-image">
-                    <h4>The Heritage Trail</h4>
-        <div class="grid-container">
-            <div class="item item1">Trg bana Jelacica</div>
-            <div class="item item2"></div>
-            <div class="item item3">Katedrala</div>
-            <div class="item item4">Dolac</div>
-            <div class="item item5"></div>
-            <div class="item item6"></div>
-            <div class="item item7">Crkva svetog Marka</div>
-            <div class="item item9">End route</div>
-        </div>
-        </div>
-            <div class="route-image">
-                    <h4>The Art Route</h4>
-                <div class="grid-container">
-                    <div class="item item1">Trg bana Jelacica</div>
-                    <div class="item item2"></div>
-                    <div class="item item3">Zrinjevac</div>
-                    <div class="item item4">Botanicki vrt</div>
-                    <div class="item item5"></div>
-                    <div class="item item6"></div>
-                    <div class="item item7">Glavni kolodvor</div>
-                   
-                    <div class="item item9">End route</div>
-                </div>
-            </div>
-            <div class="route-image">
-                    <h4>The Modern Zagreb</h4>
-                <div class="grid-container">
-                    <div class="item item1">Trg bana Jelacica</div>
-                    <div class="item item2"></div>
-                    <div class="item item3">Katedrala</div>
-                    <div class="item item4">Dolac</div>
-                    <div class="item item5"></div>
-                    <div class="item item6"></div>
-                    <div class="item item7">Crkva svetog Marka</div>
-                    <div class="item item9">End route</div>
-                </div>
-            </div>
-            <div class="route-image">
-                    <h4>The Green Escape</h4>
-                <div class="grid-container">
-                    <div class="item item1">Trg bana Jelacica</div>
-                    <div class="item item2"></div>
-                    <div class="item item3">Katedrala</div>
-                    <div class="item item4">Dolac</div>
-                    <div class="item item5"></div>
-                    <div class="item item6"></div>
-                    <div class="item item7">Crkva svetog Marka</div>
-                    <div class="item item9">End route</div>
-                </div>
-            </div>
-            </div>
-        </div>
-    </div>
+            <div class="parentRoute">
 
-    </div>
+            <div id="Route1"> @Html.Partial("PartialRoute")</div>
+            <div id="Route2"> @Html.Partial("PartialRoute1")</div>
+            <div id="Route3"> @Html.Partial("PartialRoute2")</div>
+            <div id="Route4"> @Html.Partial("PartialRoute3")</div>
+               
+            </div>
+           
+           
+              
+
+            </div>
+                  
 </body>
+

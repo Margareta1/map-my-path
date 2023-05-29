@@ -46,3 +46,4 @@ function showSlidesAuto() {
     slides[slideIndexAuto - 1].style.display = "block";
     setTimeout(showSlidesAuto, 10000); 
 }
+
