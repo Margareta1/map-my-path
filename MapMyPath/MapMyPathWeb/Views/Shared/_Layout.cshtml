@@ -19,14 +19,43 @@
             <div>
                 <nav>
                     <ul>
+                    @if (User.Identity.IsAuthenticated)
+                    {
                     <li class="navli-l0" style="margin: auto">
                             <a href="@Url.Action("Index", "Home")">
                                 <img src="~/Images/logo.png" title="Home" alt="no image" height="100" width="100"/>
                             </a>
                         </li>
-                        
-                       
-                        <li class="navli-l1" style="margin-left: auto">@Html.ActionLink("Sign in", "SignIn", "User", new { @class = "action-link" })</li>
+
+                   
+                        <li class="navli-l1">
+
+                        <div class="profile">
+                            <div class="user">
+                                    <h5>@ViewData["Username"] </h5>
+                                <p></p>
+                            </div>
+                            <div class="img-box">
+                                    <img src="~/images/profile-photo.jpg" alt="user image">
+                            </div>
+                        </div>
+                        <div class="menu">
+                            <ul>
+                                    <li><a href="/User/EditUser"><i class="ph-bold ph-user"></i>&nbsp;Profile</a></li>
+                                    <li><a href="/User/SignOut"><i class="ph-bold ph-envelope-simple"></i>&nbsp;Sign Out</a></li>
+                               
+                            </ul>
+                        </div>
+
+                        </li>
+                    }
+                    else{
+                        <li class="navli-l0" style="left:17%">
+                            <a href="@Url.Action("Index", "Home")">
+                                <img src="~/Images/logo.png" title="Home" alt="no image" height="100" width="100" />
+                            </a>
+                        </li>
+                    <li class="navli-l1" style="margin-left: auto">@Html.ActionLink("Sign in", "SignIn", "User", new { @class = "action-link" })</li>}
                     </ul>
                 <div id="menuToggle">
                   

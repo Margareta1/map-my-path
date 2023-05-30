@@ -26,11 +26,11 @@ a{
 .navli-l0 {
     list-style: none;
     position: relative;
-    left: 17%;
+    left: 3%;
+    margin:auto;
 }
     
 .navli-l0 img {
-        margin-top: 10px;
         border: 4px solid #334870;
         border-radius: 50%;
 }
@@ -81,6 +81,123 @@ a{
     font-size: 1.5rem;
     font-family: 'Montserrat', sans-serif;
 }
+
+
+/* profile menu */
+
+.profile {
+    position: relative;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 12px;
+    cursor: pointer;
+    text-align: end;
+}
+
+    .profile h5 {
+        color:white;
+        text-align: end;
+        line-height: 1;
+        margin-bottom: -15px;
+        font-weight: 400;
+        text-decoration: none;
+        list-style-type:none;
+    }
+
+    .profile p {
+        line-height: 1;
+        font-size: 14px;
+        opacity: .6;
+    }
+
+    .profile .img-box {
+        position: relative;
+        width: 48px;
+        height: 48px;
+        border-radius: 50%;
+        overflow: hidden;
+    }
+
+        .profile .img-box img {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+/* menu (the right one) */
+
+.menu {
+    position: absolute;
+    top: calc(100% + 24px);
+    right: 16px;
+    width: 130px;
+    text-align:center;
+    min-height: 150px;
+    background: #fff;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, .2);
+    opacity: 0;
+    transform: translateY(-10px);
+    visibility: hidden;
+    transition: 300ms;
+}
+
+    .menu::before {
+        content: '';
+        position: absolute;
+        top: -10px;
+        right: 14px;
+        width: 20px;
+        height: 20px;
+        background: #fff;
+        transform: rotate(45deg);
+        z-index: -1;
+    }
+
+    .menu.active {
+        opacity: 1;
+        transform: translateY(0);
+        visibility: visible;
+    }
+
+    /* menu links */
+
+    .menu ul {
+        position: relative;
+     
+        display: flex;
+        flex-direction: column;
+        z-index: 100000;
+        background: #fff;
+    }
+
+        .menu ul li {
+            list-style: none;
+        }
+
+            .menu ul li:hover {
+                background: #eee;
+            }
+
+            .menu ul li a {
+                text-decoration: none;
+                color: #000;
+                display: flex;
+                align-items: center;
+                padding: 10px 25px 10px 10px;
+                margin-right:50px;
+               
+            }
+
+                .menu ul li a i {
+                    font-size: 0.5rem;
+                }
+
+
+
 
 @media screen and (max-width: 780px) {
     nav ul{

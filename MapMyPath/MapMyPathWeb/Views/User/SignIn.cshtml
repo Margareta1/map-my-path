@@ -49,6 +49,11 @@
                         </div>
                         <div class="mt-3">
                             Or @Html.ActionLink("continue", "Index", "Home", null, new {@class = "text-decoration-none"}) without registration!
+
+                            @if( ViewData["ValidateMessage"] != null)
+                            {
+                                <label>@ViewData["ValidateMessage"]</label>
+                            }
                         </div>
                     </div>
                 </div>
