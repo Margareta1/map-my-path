@@ -393,13 +393,11 @@ text-align:center;
     min-height:200px;
 }
 .profile-container {
-    display: flex;
+ 
     font-family: 'Montserrat', sans-serif;
     text-align: center;
     justify-content: center;
-    box-shadow: 0px 0px 10px #ccc;
-    width: 30%;
-    margin-bottom: 100px;
+  
 }
 
 .profile-image img {

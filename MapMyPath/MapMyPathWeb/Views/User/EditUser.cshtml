@@ -9,61 +9,69 @@
 
 <h3 class="title">Edit your profile information</h3>
 
-    @using (Html.BeginForm())
-    {
-<div class="row justify-content-center ">
-    <div class="profile-container ">
-        <div class="profile-image">
-            <div class="picture-container">
-            <img id="profile-picture-placeholder" src="~/Images/profile-photo.jpg" width="150" height="150" alt="Profile Picture">
+   
+    <div class="container h-100 mt-5 ">
+        <div class="row h-100 justify-content-center align-items-center ">
+            <div class="form-horizontal col-lg-3 shadow p-3 mb-5 bg-white rounded  d-flex flex-column justify-content-center align-items-center">
+                <div class="profile-container ">
+                <div class="profile-image">
+                <img id="profile-picture-placeholder" src="~/Images/profile-photo.jpg" width="150" height="150" alt="Profile Picture">
 
-            <label id="btnChangeProfilePic" for="file-upload" class="fake-button">
-                🗸
-                <input id="file-upload" type="file" name="file" style="display:none" />
-            </label>
-            
-        </div>
+                <label id="btnChangeProfilePic" for="file-upload" class="fake-button">
+                    🗸
+                    <input id="file-upload" type="file" name="file" style="display:none" />
+                </label>
+                </div>
 
-        <div class="profile-form d-flex justify-content-center">
-        <form asp-action="EditUser">
-            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-            <div class="form-group">
-                <label asp-for="FirstName" class="control-label"></label>
-                <input asp-for="FirstName" class="form-control" />
-                <span asp-validation-for="FirstName" class="text-danger"></span>
-            </div>
                 <div class="form-group">
-                
-                <label asp-for="LastName" class="control-label"></label>
-                <input asp-for="LastName" class="form-control" />
-                <span asp-validation-for="LastName" class="text-danger"></span>
-            </div>
-                <div class="form-group">
-                <label asp-for="UserName" class="control-label"></label>
-                <input asp-for="UserName" class="form-control" />
-                <span asp-validation-for="UserName" class="text-danger"></span>
-            </div>
-                <div class="form-group">
-                <label asp-for="Password" class="control-label"></label>
-                <input asp-for="Password" type="password" class="form-control" />
-                <span asp-validation-for="Password" class="text-danger"></span>
-            </div>
-            
-            <div>
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-md-30 col">
+                                <label asp-for="FirstName" class="control-label"></label>
+                                <input asp-for="FirstName" class="form-control" />
+                                <span asp-validation-for="FirstName" class="text-danger"></span>
+                            </div>
 
-            </div>
-            <div class="form-group text-center">
-                    <input id="btnSave" type="submit" value="Save" class="btn btn-primary m-2" />
-                    <br />
-                        @Html.ActionLink("Delete your profile", "DeleteUser", "User")
+                            <div class="col-md-30 col">
+
+                                <label asp-for="LastName" class="control-label"></label>
+                                <input asp-for="LastName" class="form-control" />
+                                <span asp-validation-for="LastName" class="text-danger"></span>
+                            </div>
+
+
+                            <div class="col-md-12 col">
+                                <label asp-for="UserName" class="control-label"></label>
+                                <input asp-for="UserName" class="form-control" />
+                                <span asp-validation-for="UserName" class="text-danger"></span>
+                            </div>
+
+                            <div class="col-md-12 col">
+                                <label asp-for="Password" class="control-label"></label>
+                                <input asp-for="Password" type="password" class="form-control" />
+                                <span asp-validation-for="Password" class="text-danger"></span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="form-group  text-center">
+                    <div class="mt-1">
+                        <input id="btnSave" type="submit" value="Save" class="btn btn-primary m-2" />
+                        <br />
+                           <button id="btnDelete" class="btn btn-danger">Delete</button>
 
                     </div>
-        </form>
+                    </div>
+                  </div>
+                 
+                   
+                </div>
+            </div>
         </div>
-    </div>
-</div>
-</div>
-}
+
+
 
 @section Scripts {
     @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
@@ -81,5 +89,27 @@
 
         reader.readAsDataURL(file);
     });
-   
+
+
+
+        $("#btnDelete").click(function () {
+
+     
+
+            $.ajax({
+                type: "POST",
+                url: "/User/DeleteUser",
+               
+                success: function (response) {
+                    if (response.success) {
+                        
+                    }
+                },
+                error: function (xhr, status, error) {
+
+                }
+            });
+        });
+
+
 </script>
