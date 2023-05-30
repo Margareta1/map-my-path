@@ -1,4 +1,5 @@
-﻿using MapMyPathWeb.Models;
+﻿using MapMyPathLib;
+using MapMyPathWeb.Models;
 using MapMyPathWeb.Services;
 using Microsoft.AspNetCore.Mvc;
 using System.Diagnostics;
@@ -37,6 +38,7 @@ namespace MapMyPathWeb.Controllers
         {
             return View();
         }
+
         public IActionResult Discover()
         {
             return View();
@@ -54,6 +56,51 @@ namespace MapMyPathWeb.Controllers
         public IActionResult Routes()
         {
             return View();
+        }
+
+        [HttpPost]
+        public JsonResult CreateRoute([FromBody] RouteRequest request)
+        {
+            if (User.Identity.Name != null)
+            {
+                var username = User.Identity.Name;
+            }
+            var simpleCoordinates = request.SimpleCoordinates;
+
+            _accountService.CreateRoute("jane.d@gmail.com");
+            var routes = _accountService.GetUserRoutes("jane.d@gmail.com");
+            var routeId = routes.Last().IdRoute;
+
+            List<Coordinate> coordinates = new List<Coordinate>();
+            for (int i = 0; i < simpleCoordinates.Count; i++)
+            {
+                Coordinate coordinate = new Coordinate
+                {
+                    IdCoordinate = Guid.NewGuid(),
+                    RouteId = routeId,
+                    Latitude = simpleCoordinates[i].Latitude,
+                    Longitude = simpleCoordinates[i].Longitude,
+                    StoppingOrder = i + 1
+                };
+                coordinates.Add(coordinate);
+                _logger.LogInformation("Start");
+                _logger.LogInformation("Id" + coordinate.IdCoordinate + "\n");
+                _logger.LogInformation("RouteId" + coordinate.RouteId + "\n");
+                _logger.LogInformation("Latitude" + coordinate.Latitude + "\n");
+                _logger.LogInformation("Longitude" + coordinate.Longitude + "\n");
+                _logger.LogInformation("StoppingOrder" + coordinate.StoppingOrder + "\n");
+                _logger.LogInformation("End");
+                bool added = _accountService.AddStoppingPoint(routeId.ToString(), coordinate.Latitude, coordinate.Longitude, i + 1);
+
+                if (!added)
+                {
+                    // Handle error: adding stopping point failed
+                    return Json(new { success = false });
+                }
+            }
+
+            // If everything is successful, return the routeId in a JSON object
+            return Json(new { success = true, routeId = routeId });
         }
 
         [HttpPost]
@@ -75,6 +122,17 @@ namespace MapMyPathWeb.Controllers
             public double DepLng { get; set; }
             public double ArrLat { get; set; }
             public double ArrLng { get; set; }
+        }
+
+        public class SimpleCoordinate
+        {
+            public double Latitude { get; set; }
+            public double Longitude { get; set; }
+        }
+
+        public class RouteRequest
+        {
+            public List<SimpleCoordinate> SimpleCoordinates { get; set; }
         }
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]

@@ -25,11 +25,8 @@ namespace MapMyPathWeb.Services
         private List<Coordinate> COORDINATES;
         private List<MapMyPathLib.Route> USER_ROUTES;
 
-
-
         public AccountService()
         {
-
         }
 
         public IList<AppUser> GetAllUsers()
@@ -38,7 +35,6 @@ namespace MapMyPathWeb.Services
             {
                 GetAllUsersAsync().Wait();
                 return USERS;
-
             }
             catch (Exception e)
             {
@@ -76,8 +72,7 @@ namespace MapMyPathWeb.Services
             {
                 ADDED_USER = false;
             }
-                return ADDED_USER;
-
+            return ADDED_USER;
         }
 
         private async Task<bool> AddUserAsync(string username, string password, string firstName, string lastName)
@@ -116,7 +111,6 @@ namespace MapMyPathWeb.Services
             catch (Exception)
             {
                 VALIDATED_USER = false;
-
             }
             return VALIDATED_USER;
         }
@@ -193,7 +187,6 @@ namespace MapMyPathWeb.Services
             try
             {
                 CreateRouteAsync(username);
-
             }
             catch (Exception e)
             {
@@ -233,15 +226,13 @@ namespace MapMyPathWeb.Services
         {
             try
             {
-            AddStoppingPointAsync(routeId, lat, lon, order).Wait();
-
+                AddStoppingPointAsync(routeId, lat, lon, order).Wait();
             }
             catch (Exception)
             {
                 STOPPINGPOINTADDED = false;
             }
             return STOPPINGPOINTADDED;
-
         }
 
         private async Task<bool> AddStoppingPointAsync(string routeId, double lat, double lon, int order)
@@ -291,7 +282,7 @@ namespace MapMyPathWeb.Services
             httpRequest = new HttpRequestMessage
             {
                 Method = method,
-                RequestUri = new Uri(URL + string.Format(GETROUTESFORUSER_ENDPOINT,username))
+                RequestUri = new Uri(URL + string.Format(GETROUTESFORUSER_ENDPOINT, username))
             };
 
             var resp = new List<MapMyPathLib.Route>();

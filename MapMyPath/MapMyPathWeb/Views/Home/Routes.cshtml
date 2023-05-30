@@ -2,10 +2,7 @@
     ViewData["Title"] = "Routes";
    
 }
-<script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
-<script async
-        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB9Wyv8ha4LLUyDD9sPdtb7svNEl1LeMlw&libraries=places&callback=initMap">
-</script>
+
 <head>
     <link rel="stylesheet" href="~/css/weather.css" asp-append-version="true" />
 </head>
@@ -17,6 +14,9 @@
         <button  id="btnRender">Render route</button>
         <span>or:</span>
         <button  id="btnRefresh">Refresh</button>
+        <span>or:</span>
+        <button id="saveRouteBtn">Save route</button>
+
 
     </div>
 </div>
@@ -50,5 +50,7 @@
 </div>
 
 <script src="~/js/routes.js"></script>
-
-
+<script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
+<script async
+        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB9Wyv8ha4LLUyDD9sPdtb7svNEl1LeMlw&libraries=places&callback=initMap">
+</script>

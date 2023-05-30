@@ -42,9 +42,7 @@
     box-shadow: -6px -4px 18px -3px #344870;
 }
 
-
-
-#btnRender, #btnRefresh {
+#btnRender, #btnRefresh, #saveRouteBtn {
     font-family: Roboto, sans-serif;
     font-weight: 500;
     font-size: 14px;
@@ -61,18 +59,17 @@
     align-items: center;
     cursor: pointer;
     text-transform: uppercase;
-    margin-left:5px;
-    margin-right:5px;
-    z-index:1000;
+    margin-left: 5px;
+    margin-right: 5px;
+    z-index: 1000;
 }
 
-#btnRefresh:hover, #btnRender:hover {
-    transition: 734ms;
-    padding: 10px 21px;
-    transform: translateY(-0px);
-    background-color: #fff;
-    color: #2f5a8f;
-    border: solid 2px #0066cc;
-    z-index:1000;
-}
-
+    #btnRefresh:hover, #btnRender:hover, #saveRouteBtn:hover {
+        transition: 734ms;
+        padding: 10px 21px;
+        transform: translateY(-0px);
+        background-color: #fff;
+        color: #2f5a8f;
+        border: solid 2px #0066cc;
+        z-index: 1000;
+    }

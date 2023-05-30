@@ -173,9 +173,9 @@ function addMarker(location) {
     });
 
     markers.push(marker);
+    console.log(markers)
 }
 
-// Calculate the route using the Directions API
 async function calculateRoute() {
     if (markers.length < 2) {
         return;
@@ -302,8 +302,8 @@ window.onload = function () {
 };
 
 let retryCount = 0;
-const maxRetryCount = 3;  
-const retryDelay = 2000;
+const maxRetryCount = 4;
+const retryDelay = 3000;
 
 //interests
 async function fetchPlacesOfInterest(location) {
@@ -327,7 +327,7 @@ async function fetchPlacesOfInterest(location) {
                     resolve([]); // If no places of interest, empty array
                 }
                 else if (status === google.maps.places.PlacesServiceStatus.OVER_QUERY_LIMIT) {
-                    // If rate limit is exceeded, wait and try again
+                    // If rate limit exceeded, wait and try again
                     setTimeout(() => {
                         retryCount++;
                         if (retryCount <= maxRetryCount) {
@@ -339,8 +339,6 @@ async function fetchPlacesOfInterest(location) {
                 } else {
                     reject(new Error(`Place fetching failed: ${status}`));
                 }
-
-             
             });
         });
 
@@ -358,3 +356,28 @@ async function fetchPlacesOfInterest(location) {
 function delay(ms) {
     return new Promise(resolve => setTimeout(resolve, ms));
 }
+
+document.getElementById('saveRouteBtn').addEventListener('click', async function () {
+    var pathCoordinates = markers.map(marker => {
+        return { Latitude: marker.getPosition().lat(), Longitude: marker.getPosition().lng() };
+    });
+
+    let response = await fetch('/Home/CreateRoute', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({ 'simpleCoordinates': pathCoordinates })
+    });
+
+    if (response.ok) {
+        let jsonResponse = await response.json();
+        if (jsonResponse.success) {
+            console.log("Route ID: ", jsonResponse.routeId);
+        } else {
+            console.log("Error: ", jsonResponse);
+        }
+    } else {
+        console.log("Network response was not ok.");
+    }
+});
