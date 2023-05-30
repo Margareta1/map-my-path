@@ -82,7 +82,7 @@ namespace MapMyPathWeb.Controllers
         public IActionResult DeleteUser(AppUser user)
         {
             accountService.DeleteUser(user.UserName);
-            return View();
+            return RedirectToAction("SignIn", "User"); 
         }
         [Authorize]
         public async Task<IActionResult> SignOut()
