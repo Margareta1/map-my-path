@@ -73,3 +73,50 @@
         border: solid 2px #0066cc;
         z-index: 1000;
     }
+
+.routeList {
+    font-family: Roboto, sans-serif;
+    font-weight: 500;
+    font-size: 14px;
+    color: #2f5a8f;
+    background-color: #fff;
+    padding: 5px 15px;
+    border: solid #317699 2px;
+    box-shadow: rgb(0, 0, 0) 0px 0px 0px 0px;
+    border-radius: 17px;
+    transition: 734ms;
+    transform: translateY(0);
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    cursor: pointer;
+    text-transform: uppercase;
+    z-index: 1000;
+}
+
+    .routeList:hover {
+        transition: 734ms;
+        padding: 10px 21px;
+        transform: translateY(-0px);
+        background-color: #3d628f;
+        color: #d9f4ff;
+        border: solid 2px #0066cc;
+        z-index: 1000;
+    }
+
+#routeList1 {
+    position: relative;
+    width: 57%;
+    justify-content: center;
+    background-color: white;
+    border-radius: 15px;
+    padding: 0;
+    margin: 10px;
+    left: 20%;
+    overflow: hidden;
+    align-items: center;
+    font-weight: 700;
+    padding: 5px;
+    font-family: 'Montserrat', sans-serif;
+    box-shadow: -6px -4px 18px -3px #344870;
+}

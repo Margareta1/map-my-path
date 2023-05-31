@@ -2,23 +2,32 @@ html {
     font-size: 14px;
     margin: 0px;
     min-height: 100vh;
-  
 }
 
 @media (min-width: 768px) {
-  html {
-    font-size: 16px;
-  }
+    html {
+        font-size: 16px;
+    }
 }
 
 html {
-  position: relative;
-  min-height: 100%;
+    position: relative;
+    min-height: 100%;
 }
 
 body {
     min-height: 100vh;
     display: flex;
     flex-direction: column;
+}
 
+#reklama {
+    margin-top: 50px;
+    margin-bottom: 50px;
+    padding: 20px, 20px, 20px, 20px;
+    z-index: 1000;
+    background-color: lightcoral;
+    border: dotted;
+    border-color: black;
+    justify-content: center;
 }

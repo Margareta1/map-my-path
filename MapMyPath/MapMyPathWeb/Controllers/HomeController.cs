@@ -55,25 +55,61 @@ namespace MapMyPathWeb.Controllers
 
         public IActionResult Routes()
         {
-            return View();
+            var routes = _accountService.GetUserRoutes(User?.Identity?.Name);
+            return View(routes);
+        }
+
+        [HttpGet]
+        public IActionResult GetRoutes()
+        {
+            string username = User?.Identity?.Name;
+
+            if (string.IsNullOrEmpty(username))
+            {
+                // return an empty list or an error message if no user is logged in
+                return Json(new List<MapMyPathLib.Route>());
+            }
+            else
+            {
+                var routes = _accountService.GetUserRoutes(username);
+
+                foreach (var item in routes)
+                {
+                    _logger.LogInformation(item.IdRoute.ToString());
+                }
+                return Json(routes);
+            }
+        }
+
+        [HttpGet]
+        public IActionResult GetCoordinatesForRoute(string routeId)
+        {
+            var coordinates = _accountService.GetCoordinatesForRoute(routeId);
+            coordinates = coordinates.OrderBy(c => c.StoppingOrder).ToList();
+            return Json(coordinates);
         }
 
         [HttpPost]
-        public JsonResult CreateRoute([FromBody] RouteRequest request)
+        public async Task<JsonResult> CreateRoute([FromBody] RouteRequest request)
         {
-            if (User.Identity.Name != null)
+            if (User.Identity.Name == null)
             {
-                var username = User.Identity.Name;
+                return Json(new { success = false });
             }
+            var _username = User.Identity.Name;
             var simpleCoordinates = request.SimpleCoordinates;
 
-            _accountService.CreateRoute("jane.d@gmail.com");
-            var routes = _accountService.GetUserRoutes("jane.d@gmail.com");
+            // _logger.LogInformation(_username);
+            await _accountService.CreateRoute(_username);
+            var routes = _accountService.GetUserRoutes(_username);
+
             var routeId = routes.Last().IdRoute;
 
             List<Coordinate> coordinates = new List<Coordinate>();
             for (int i = 0; i < simpleCoordinates.Count; i++)
             {
+                // _logger.LogInformation("Latitude; " + simpleCoordinates[i].Latitude.ToString());
+                // _logger.LogInformation("Longitude; " + simpleCoordinates[i].Longitude.ToString());
                 Coordinate coordinate = new Coordinate
                 {
                     IdCoordinate = Guid.NewGuid(),
@@ -83,23 +119,14 @@ namespace MapMyPathWeb.Controllers
                     StoppingOrder = i + 1
                 };
                 coordinates.Add(coordinate);
-                _logger.LogInformation("Start");
-                _logger.LogInformation("Id" + coordinate.IdCoordinate + "\n");
-                _logger.LogInformation("RouteId" + coordinate.RouteId + "\n");
-                _logger.LogInformation("Latitude" + coordinate.Latitude + "\n");
-                _logger.LogInformation("Longitude" + coordinate.Longitude + "\n");
-                _logger.LogInformation("StoppingOrder" + coordinate.StoppingOrder + "\n");
-                _logger.LogInformation("End");
                 bool added = _accountService.AddStoppingPoint(routeId.ToString(), coordinate.Latitude, coordinate.Longitude, i + 1);
 
                 if (!added)
                 {
-                    // Handle error: adding stopping point failed
                     return Json(new { success = false });
                 }
             }
 
-            // If everything is successful, return the routeId in a JSON object
             return Json(new { success = true, routeId = routeId });
         }
 
