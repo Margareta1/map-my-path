@@ -1,12 +1,13 @@
 ﻿using MapMyPathCore.Data;
+using MapMyPathCore.Interfaces;
 using MapMyPathLib;
 
 namespace MapMyPathCore.Services
 {
-    public class RouteService
+    public class RouteService : IRouteService
     {
-
         private MapMyPathCoreContext CONTEXT;
+
         public RouteService()
         {
             CONTEXT = new MapMyPathCoreContext(new Microsoft.EntityFrameworkCore.DbContextOptions<MapMyPathCoreContext>());
@@ -40,14 +41,13 @@ namespace MapMyPathCore.Services
             {
                 return false;
             }
-            
         }
 
         public List<MapMyPathLib.Route> GetRoutesForUser(string username)
         {
             try
             {
-                var userId = Guid.Parse(CONTEXT.Users.FirstOrDefault(x=>x.UserName==username).Id);
+                var userId = Guid.Parse(CONTEXT.Users.FirstOrDefault(x => x.UserName == username).Id);
                 return CONTEXT.Route.Where(x => x.UserId == userId).ToList();
             }
             catch (Exception)

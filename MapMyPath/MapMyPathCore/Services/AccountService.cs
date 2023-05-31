@@ -1,11 +1,13 @@
 ﻿using MapMyPathCore.Data;
+using MapMyPathCore.Interfaces;
 using MapMyPathLib;
 
 namespace MapMyPathCore.Services
 {
-    public class AccountService
+    public class AccountService : IAccountService
     {
         private MapMyPathCoreContext CONTEXT;
+
         public AccountService()
         {
             CONTEXT = new MapMyPathCoreContext(new Microsoft.EntityFrameworkCore.DbContextOptions<MapMyPathCoreContext>());
@@ -25,8 +27,6 @@ namespace MapMyPathCore.Services
                     Password = item.Password,
                     FirstName = item.FirstName,
                     LastName = item.LastName,
-
-
                 });
             }
             return modelUsers;
@@ -37,14 +37,13 @@ namespace MapMyPathCore.Services
             var user = CONTEXT.Users.First(x => x.UserName == username);
             return new AppUser
             {
-                Id=Guid.Parse(user.Id),
+                Id = Guid.Parse(user.Id),
                 FirstName = user.FirstName,
                 LastName = user.LastName,
                 CreatedAt = user.CreatedAt,
                 IsDeleted = user.IsDeleted,
                 Password = user.Password,
                 UserName = user.UserName,
-
             };
         }
 
@@ -62,7 +61,6 @@ namespace MapMyPathCore.Services
                     LastName = user.LastName,
                     Password = user.Password,
                     UserName = user.UserName
-
                 });
                 CONTEXT.SaveChanges();
                 return true;
@@ -97,7 +95,6 @@ namespace MapMyPathCore.Services
             {
                 return false;
             }
-
         }
     }
 }
