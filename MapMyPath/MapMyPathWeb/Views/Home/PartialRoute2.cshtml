@@ -5,11 +5,11 @@
 
 <script src="~/lib/jquery/dist/jquery.js"></script>
 
-<h1 class="text-center">The Heritage Trail</h1>
+<h1 class="text-center">The Green Escape</h1>
 <div class="row">
     <div class="cont">
-        <progress id="nprogress-bar" value="0" max="100"></progress>
-        <div id="step">
+        <progress id="nprogress-bar2" value="0" max="100"></progress>
+        <div id="step2">
             <span class="first border-change"><i class="fa fa-flask"></i></span>
             <span class="second"><i class="fa fa-paint-brush"></i></span>
             <span class="third"><i class="fa fa-code"></i></span>
@@ -18,64 +18,76 @@
 
 
         <div class="row">
-            <div id="first">
-                <h2>Square of Ban Jelacic</h2>
-                <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
-            </div><div id="second">
-                <h2>Katedrala</h2>
-                <p>There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable. If you are going to use a passage of Lorem Ipsum, you need to be sure there isn't anything embarrassing hidden in the middle of text. All the Lorem Ipsum generators on the Internet tend to repeat predefined chunks as necessary, making this the first true generator on the Internet. It uses a dictionary of over 200 Latin words, combined with a handful of model sentence structures, to generate Lorem Ipsum which looks reasonable. The generated Lorem Ipsum is therefore always free from repetition, injected humour, or non-characteristic words etc.</p>
+            <div id="first2">
+                <h2>
+                    Maksimir Park
+                </h2>
+                <p>Discover the enchanting oasis of Maksimir Park, where lush greenery and winding paths beckon you to explore. Whether you're strolling through the majestic oak forest, admiring the vibrant colors of the flowerbeds, or picnicking by the picturesque lakes, this park offers a peaceful escape from the bustling city. Take a moment to breathe in the fresh air, spot some wildlife, and recharge your batteries in this natural haven.</p>
             </div>
-            <div id="third">
-                <h2> Dolac</h2>
-                <p>Nullam porttitor pretium dolor vitae ullamcorper. Suspendisse blandit ipsum et condimentum efficitur. Nullam facilisis suscipit sapien, quis condimentum ex elementum vitae. Sed ullamcorper gravida interdum. Aenean blandit mauris lectus, interdum consectetur ex elementum vel. Aliquam sagittis efficitur elit eu tristique. Integer augue arcu, tempus non ligula eu, varius vestibulum ipsum. Praesent nibh mi, condimentum id pellentesque sed, sodales vitae sem. Nam ac luctus libero, in molestie ante. Maecenas ultrices a augue vel efficitur. Duis eget velit lorem. In at elit vel quam ullamcorper venenatis eu ac leo. Proin non commodo nibh, consequat volutpat tellus. Sed sed dui faucibus, pulvinar turpis vel, pretium ipsum. Donec commodo magna id quam tempus, at vulputate quam dignissim. Sed luctus a augue euismod scelerisque.</p>
+            <div id="second2">
+                <h2>
+                    Botanical Garden
+                </h2>
+                <p>Immerse yourself in the beauty of nature at the Botanical Garden, a captivating sanctuary for plant lovers and curious souls alike. With its extensive collection of exotic flowers, rare trees, and carefully manicured landscapes, this botanical paradise offers a delightful sensory experience. Take a leisurely walk through themed gardens, learn about different plant species, or simply find a serene spot to unwind amidst the colorful blooms. Let the Botanical Garden ignite your imagination and leave you with a renewed appreciation for the wonders of the plant world.</p>
             </div>
-            <div id="fourth"><h2>Saint Marko Church</h2><p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p></div>
+            <div id="third2">
+                <h2>
+                    Jarun Lake
+                </h2>
+                <p>Escape the urban hustle and bustle and head to the stunning Jarun Lake, a true haven for outdoor enthusiasts. Nestled amidst verdant surroundings, this tranquil lake offers a range of activities for everyone. Whether you prefer kayaking, paddleboarding, or simply lounging on the sandy beach, Jarun Lake has it all. Embrace the breathtaking views, soak up the sun, and relish the sense of freedom that this aquatic paradise provides. Get ready to create unforgettable memories by the water's edge.</p> </div>
+            <div id="fourth2">
+                <h2>
+                    Zrinjevac Park
+                </h2><p>
+                    Step into the heart of Zagreb's elegance at Zrinjevac Park, where history and beauty intertwine. Adorned with charming fountains, picturesque flowerbeds, and majestic plane trees, this park exudes an air of serenity and sophistication. Relax on one of the park benches, savoring the melody of live music that often graces the park's bandstand, or enjoy a leisurely stroll along the promenade. Zrinjevac Park is the perfect spot to escape the city's hustle, indulge in some people-watching, and find respite in its tranquil ambiance.
+                </p> 
+                </div>
         </div>
         </div>
         </div>
 
             <script>
-            $('#first').show();
-            $('#second').hide();
-            $('#third').hide();
-            $('#fourth').hide();
+            $('#first2').show();
+            $('#second2').hide();
+            $('#third2').hide();
+            $('#fourth2').hide();
             $('span').click(function () {
                 if ($(this).hasClass('first')) {
-                    $('#nprogress-bar').val('0');
+                    $('#nprogress-bar2').val('0');
                     $(this).nextAll().removeClass('border-change');
                     //$('.percent').html("0% Complete");
-                    $('#first').show();
-                    $('#second').hide();
-                    $('#third').hide();
-                    $('#fourth').hide();
+                    $('#first2').show();
+                    $('#second2').hide();
+                    $('#third2').hide();
+                    $('#fourth2').hide();
                 } else if ($(this).hasClass('second')) {
                     $(this).nextAll().removeClass('border-change');
-                    $('#nprogress-bar').val('34');
+                    $('#nprogress-bar2').val('34');
                     $(this).prevAll().addClass('border-change');
                     $(this).addClass('border-change');
                     //$('.percent').html("33% Complete");
-                    $('#second').show();
-                    $('#first').hide();
-                    $('#third').hide();
-                    $('#fourth').hide();
+                    $('#second2').show();
+                    $('#first2').hide();
+                    $('#third2').hide();
+                    $('#fourth2').hide();
                 } else if ($(this).hasClass('third')) {
                     $(this).nextAll().removeClass('border-change');
-                    $('#nprogress-bar').val('67');
+                    $('#nprogress-bar2').val('67');
                     $(this).prevAll().addClass('border-change');
                     $(this).addClass('border-change');
                     //$('.percent').html("66% Complete");
-                    $('#second').hide();
-                    $('#first').hide();
-                    $('#fourth').hide();
-                    $('#third').show();
+                    $('#second2').hide();
+                    $('#first2').hide();
+                    $('#fourth2').hide();
+                    $('#third2').show();
                 } else {
-                    $('#nprogress-bar').val('100');
+                    $('#nprogress-bar2').val('100');
                     $(this).addClass('border-change');
                     $(this).prevAll().addClass('border-change');
                     //$('.percent').html("100% Complete");
-                    $('#third').hide();
-                    $('#first').hide();
-                    $('#fourth').show();
+                    $('#third2').hide();
+                    $('#first2').hide();
+                    $('#fourth2').show();
                 }
             });
             </script>

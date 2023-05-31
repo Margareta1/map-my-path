@@ -1,0 +1,432 @@
+﻿@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300&display=swap');
+
+
+
+.textbox {
+    text-align: center;
+    width: 90%;
+    margin: auto;
+}
+
+    .textbox p {
+        margin-top: 3%;
+        font-size: 1.2rem;
+        width: 60%;
+        text-align: justify;
+    }
+
+    .textbox h2 {
+        font-weight: 700;
+    }
+
+
+
+
+.text-center {
+
+    margin-top:5%;
+    margin-bottom:5%;
+    margin-left: -29%;
+    color: #CCC;
+}
+
+
+.input-discover {
+    opacity: 0;
+    width: 0;
+    height: 0;
+    position: absolute;
+}
+
+
+.wrapper {
+    width: 50vw; 
+    display: flex;
+}
+
+
+
+.content {
+    width: 50vw;
+    height: 100%; 
+}
+
+
+
+.wrapper {
+    margin: 0 auto;
+    background-color: white;
+    box-shadow: 3px 3px 20px #9E9E9E;
+    width: 100%;
+    height:100vh;
+    background-size: cover;
+    background-position: center;
+}
+
+.controls {
+    display: flex;
+    justify-content: center;
+}
+
+.content {
+
+  
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity .6s;
+    max-height: 90vh;
+    overflow-y: auto;
+}
+
+
+
+
+
+#i_1:checked ~ .wrapper .content1,
+#i_2:checked ~ .wrapper .content2,
+#i_3:checked ~ .wrapper .content3,
+#i_4:checked ~ .wrapper .content4
+{
+    opacity: 1;
+    pointer-events: auto;
+}
+
+.label-discover {
+    color: #E0E0E0;
+    transition-duration: .6s;
+    cursor: pointer;
+}
+
+#i_1:checked ~ .controls label[for="i_1"],
+#i_2:checked ~ .controls label[for="i_2"],
+#i_3:checked ~ .controls label[for="i_3"],
+#i_4:checked ~ .controls label[for="i_4"] {
+    color: #424242;
+}
+
+
+.cont {
+    left: 17%;
+    padding: 0;
+    margin: 40px auto;
+    position: absolute;
+}
+
+#nprogress-bar {
+    -webkit-appearance: none;
+    width: 700px;
+    color: #CCC;
+    height: 2px;
+    margin: 0 auto;
+    position: relative;
+    left: -18%;
+}
+
+#nprogress-bar1 {
+    -webkit-appearance: none;
+    width: 700px;
+    color: #CCC;
+    height: 2px;
+    margin: 0 auto;
+    position: relative;
+    left: -18%;
+}
+
+#nprogress-bar2 {
+    -webkit-appearance: none;
+    width: 700px;
+    color: #CCC;
+    height: 2px;
+    margin: 0 auto;
+    position: relative;
+    left: -18%;
+}
+
+#nprogress-bar3 {
+    -webkit-appearance: none;
+    width: 700px;
+    color: #CCC;
+    height: 2px;
+    margin: 0 auto;
+    position: relative;
+    left: -18%;
+}
+
+#first, #second, #third, #fourth {
+    margin: 0px;
+}
+
+#first1, #second1, #third1, #fourth1 {
+    margin: 0px;
+}
+
+#first2, #second2, #third2, #fourth2 {
+    margin: 0px;
+}
+
+#first3, #second3, #third3, #fourth3 {
+    margin: 0px;
+}
+
+#step span {
+    height: 80px;
+    width: 80px;
+    border-radius: 100%;
+    border: 3px solid #CCC;
+    background: #CCCCCC;
+    position: absolute;
+    left: 0;
+    color: #ffffff;
+    top: -30px;
+    cursor: pointer;
+    transition: all 0.4s ease-in-out;
+}
+
+#step1 span {
+    height: 80px;
+    width: 80px;
+    border-radius: 100%;
+    border: 3px solid #CCC;
+    background: #CCCCCC;
+    position: absolute;
+    left: 0;
+    color: #ffffff;
+    top: -30px;
+    cursor: pointer;
+    transition: all 0.4s ease-in-out;
+}
+
+#step2 span {
+    height: 80px;
+    width: 80px;
+    border-radius: 100%;
+    border: 3px solid #CCC;
+    background: #CCCCCC;
+    position: absolute;
+    left: 0;
+    color: #ffffff;
+    top: -30px;
+    cursor: pointer;
+    transition: all 0.4s ease-in-out;
+}
+
+#step3 span {
+    height: 80px;
+    width: 80px;
+    border-radius: 100%;
+    border: 3px solid #CCC;
+    background: #CCCCCC;
+    position: absolute;
+    left: 0;
+    color: #ffffff;
+    top: -30px;
+    cursor: pointer;
+    transition: all 0.4s ease-in-out;
+}
+
+#step {
+    height: 100px;
+    width: 100%;
+}
+
+    #step span i {
+        padding: 20px;
+        text-align: center;
+        font-size: 40px;
+    }
+
+#step1 {
+    height: 100px;
+    width: 100%;
+}
+
+    #step1 span i {
+        padding: 20px;
+        text-align: center;
+        font-size: 40px;
+    }
+
+#step2 {
+    height: 100px;
+    width: 100%;
+}
+
+    #step2 span i {
+        padding: 20px;
+        text-align: center;
+        font-size: 40px;
+    }
+
+#step3 {
+    height: 100px;
+    width: 100%;
+}
+
+    #step3 span i {
+        padding: 20px;
+        text-align: center;
+        font-size: 40px;
+    }
+
+#step .first {
+    left: -23px;
+}
+
+
+#step .second {
+    left: 200px;
+}
+
+#step .third {
+    left: 420px;
+}
+
+#step .fourth {
+    left: 640px;
+}
+
+#step1 .first {
+    left: -23px;
+}
+
+
+#step1 .second {
+    left: 200px;
+}
+
+#step1 .third {
+    left: 420px;
+}
+
+#step1 .fourth {
+    left: 640px;
+}
+
+#step2 .first {
+    left: -23px;
+}
+
+
+#step2 .second {
+    left: 200px;
+}
+
+#step2 .third {
+    left: 420px;
+}
+
+#step2 .fourth {
+    left: 640px;
+}
+
+#step3 .first {
+    left: -23px;
+}
+
+
+#step3 .second {
+    left: 200px;
+}
+
+#step3 .third {
+    left: 420px;
+}
+
+#step3 .fourth {
+    left: 640px;
+}
+
+.detail {
+    position: relative;
+}
+
+#nprogress-bar::-webkit-progress-value { /* Changes line color */
+    background: #334870;
+    transition: all 0.4s ease-in-out;
+}
+
+#nprogress-bar::-webkit-progress-bar { /* Changes background color */
+    background: #CCC;
+}
+
+#nprogress-bar1::-webkit-progress-value { /* Changes line color */
+    background: #334870;
+    transition: all 0.4s ease-in-out;
+}
+
+#nprogress-bar1::-webkit-progress-bar { /* Changes background color */
+    background: #CCC;
+}
+
+#nprogress-bar2::-webkit-progress-value { /* Changes line color */
+    background: #334870;
+    transition: all 0.4s ease-in-out;
+}
+
+#nprogress-bar2::-webkit-progress-bar { /* Changes background color */
+    background: #CCC;
+}
+
+#nprogress-bar3::-webkit-progress-value { /* Changes line color */
+    background: #334870;
+    transition: all 0.4s ease-in-out;
+}
+
+#nprogress-bar3::-webkit-progress-bar { /* Changes background color */
+    background: #CCC;
+}
+
+#step .border-change {
+    border-color: #334870;
+    background: #334870;
+    transition: all 0.4s ease-in-out;
+}
+
+#step1 .border-change {
+    border-color: #334870;
+    background: #334870;
+    transition: all 0.4s ease-in-out;
+}
+
+#step2 .border-change {
+    border-color: #334870;
+    background: #334870;
+    transition: all 0.4s ease-in-out;
+}
+
+#step3 .border-change {
+    border-color: #334870;
+    background: #334870;
+    transition: all 0.4s ease-in-out;
+}
+
+#first h2, #second h2, #third h2, #fourth h2 {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1.5rem;
+    position: relative;
+    left: -18%;
+}
+
+#first1 h2, #second1 h2, #third1 h2, #fourth1 h2 {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1.5rem;
+    position: relative;
+    left: -18%;
+}
+
+#first2 h2, #second2 h2, #third2 h2, #fourth2 h2 {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1.5rem;
+    position: relative;
+    left: -18%;
+}
+
+#first3 h2, #second3 h2, #third3 h2, #fourth3 h2 {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1.5rem;
+    position: relative;
+    left: -18%;
+}
+.slide {
+    width: 0;
+}

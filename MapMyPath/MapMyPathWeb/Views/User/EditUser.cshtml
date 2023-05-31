@@ -7,7 +7,7 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h3 class="title">Edit your profile information</h3>
+<h3 class=" title" >Edit your profile information</h3>
 
    
     <div class="container h-100 mt-5 ">
@@ -23,7 +23,7 @@
                 </label>
                 </div>
 
-                <div class="form-group">
+                <div class="form-group mt-5">
                     <div class="container">
                         <div class="row">
                             <div class="col-md-30 col">
@@ -60,7 +60,7 @@
                     <div class="mt-1">
                         <input id="btnSave" type="submit" value="Save" class="btn btn-primary m-2" />
                         <br />
-                           <button id="btnDelete" class="btn btn-danger">Delete</button>
+                           <button id="btnDelete" class="btn btn-danger" onclick="confirmDelete()">Delete</button>
 
                     </div>
                     </div>
@@ -91,25 +91,14 @@
     });
 
 
+function confirmDelete() {
+  var confirmed = confirm("Are you sure you want to delete?");
 
-        $("#btnDelete").click(function () {
+  if (confirmed) {
+    window.location.href = "/User/DeleteUser";
+  }
+}
 
-     
-
-            $.ajax({
-                type: "POST",
-                url: "/User/DeleteUser",
-               
-                success: function (response) {
-                    if (response.success) {
-                        
-                    }
-                },
-                error: function (xhr, status, error) {
-
-                }
-            });
-        });
 
 
 </script>

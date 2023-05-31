@@ -6,11 +6,11 @@
 <script src="~/lib/jquery/dist/jquery.js"></script>
 <script src="~/lib/jquery/dist/jquery.js"></script>
 
-<h1 class="text-center">The Heritage Trail</h1>
+<h1 class="text-center">Vibrant Nights</h1>
 <div class="row">
     <div class="cont">
-        <progress id="nprogress-bar" value="0" max="100"></progress>
-        <div id="step">
+        <progress id="nprogress-bar3" value="0" max="100"></progress>
+        <div id="step3">
             <span class="first border-change"><i class="fa fa-flask"></i></span>
             <span class="second"><i class="fa fa-paint-brush"></i></span>
             <span class="third"><i class="fa fa-code"></i></span>
@@ -19,64 +19,68 @@
 
 
         <div class="row">
-            <div id="first">
-                <h2>Square of Ban Jelacic</h2>
-                <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
-            </div><div id="second">
-                <h2>Katedrala</h2>
-                <p>There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable. If you are going to use a passage of Lorem Ipsum, you need to be sure there isn't anything embarrassing hidden in the middle of text. All the Lorem Ipsum generators on the Internet tend to repeat predefined chunks as necessary, making this the first true generator on the Internet. It uses a dictionary of over 200 Latin words, combined with a handful of model sentence structures, to generate Lorem Ipsum which looks reasonable. The generated Lorem Ipsum is therefore always free from repetition, injected humour, or non-characteristic words etc.</p>
+            <div id="first3">
+                <h2>Tkalčićeva Street</h2>
+                <p>When the sun sets, Tkalciceva Street comes alive with a vibrant nightlife scene that caters to all tastes and preferences. Whether you're in the mood for a trendy cocktail bar, a cozy pub, or a bustling nightclub, this lively street has it all. Join the energetic crowds as you hop from one establishment to another, enjoying live music, sampling local craft beers, and indulging in delicious cuisine. Tkalciceva Street is the perfect place to dance the night away, make new friends, and create lasting memories in the heart of the city.
+
+</p>
             </div>
-            <div id="third">
-                <h2> Dolac</h2>
-                <p>Nullam porttitor pretium dolor vitae ullamcorper. Suspendisse blandit ipsum et condimentum efficitur. Nullam facilisis suscipit sapien, quis condimentum ex elementum vitae. Sed ullamcorper gravida interdum. Aenean blandit mauris lectus, interdum consectetur ex elementum vel. Aliquam sagittis efficitur elit eu tristique. Integer augue arcu, tempus non ligula eu, varius vestibulum ipsum. Praesent nibh mi, condimentum id pellentesque sed, sodales vitae sem. Nam ac luctus libero, in molestie ante. Maecenas ultrices a augue vel efficitur. Duis eget velit lorem. In at elit vel quam ullamcorper venenatis eu ac leo. Proin non commodo nibh, consequat volutpat tellus. Sed sed dui faucibus, pulvinar turpis vel, pretium ipsum. Donec commodo magna id quam tempus, at vulputate quam dignissim. Sed luctus a augue euismod scelerisque.</p>
+            <div id="second3">
+                <h2>Hemingway Lounge Bar</h2>
+                <p>ort you to a bygone era. With its vintage decor, live music, and extensive cocktail menu, this bar is a haven for those seeking a memorable night out. Sip on handcrafted cocktails, engage in lively conversations, and immerse yourself in the vibrant atmosphere that Hemingway Lounge Bar effortlessly creates. Prepare for an unforgettable night filled with laughter, good company, and a touch of old-world charm.</p></div>
+            <div id="third3">
+                <h2> Vinyl Bar</h2>
+                <p>Embrace the retro vibes at Vinyl Bar, a haven for music enthusiasts and lovers of vintage style. As you step inside, you'll be greeted by the warm glow of Edison bulbs, walls adorned with classic album covers, and the nostalgic sound of vinyl records spinning on turntables. Savor a wide selection of craft beers, signature cocktails, and artisanal spirits while engaging in conversations about music and sharing your favorite tracks. Whether you're a vinyl aficionado or simply appreciate the unique ambiance, Vinyl Bar promises an unforgettable night filled with good tunes and great vibes.</p>
+</div>
+            <div id="fourth3">
+                <h2>Jarun Lake</h2>
+                <p>When the sun goes down, Jarun Lake transforms into a buzzing hub of nighttime activities. Dive into the vibrant nightlife scene as you explore a variety of bars, clubs, and live music venues that surround the lake. Dance to the beats of renowned DJs, sip on refreshing cocktails at lakeside bars, or enjoy live performances under the starry sky. Whether you're looking for a laid-back evening by the water or an energetic night of partying, Jarun Lake offers an exciting nightlife experience that caters to every taste. Get ready for a night of unforgettable fun and endless possibilities.</p>
             </div>
-            <div id="fourth"><h2>Saint Marko Church</h2><p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p></div>
-        </div>
         </div>
         </div>
 
             <script>
-            $('#first').show();
-            $('#second').hide();
-            $('#third').hide();
-            $('#fourth').hide();
+            $('#first3').show();
+            $('#second3').hide();
+            $('#third3').hide();
+            $('#fourth3').hide();
             $('span').click(function () {
                 if ($(this).hasClass('first')) {
-                    $('#nprogress-bar').val('0');
+                    $('#nprogress-bar3').val('0');
                     $(this).nextAll().removeClass('border-change');
                     //$('.percent').html("0% Complete");
-                    $('#first').show();
-                    $('#second').hide();
-                    $('#third').hide();
-                    $('#fourth').hide();
+                    $('#first3').show();
+                    $('#second3').hide();
+                    $('#third3').hide();
+                    $('#fourth3').hide();
                 } else if ($(this).hasClass('second')) {
                     $(this).nextAll().removeClass('border-change');
-                    $('#nprogress-bar').val('34');
+                    $('#nprogress-bar3').val('34');
                     $(this).prevAll().addClass('border-change');
                     $(this).addClass('border-change');
                     //$('.percent').html("33% Complete");
-                    $('#second').show();
-                    $('#first').hide();
-                    $('#third').hide();
-                    $('#fourth').hide();
+                    $('#second3').show();
+                    $('#first3').hide();
+                    $('#third3').hide();
+                    $('#fourth3').hide();
                 } else if ($(this).hasClass('third')) {
                     $(this).nextAll().removeClass('border-change');
-                    $('#nprogress-bar').val('67');
+                    $('#nprogress-bar3').val('67');
                     $(this).prevAll().addClass('border-change');
                     $(this).addClass('border-change');
                     //$('.percent').html("66% Complete");
-                    $('#second').hide();
-                    $('#first').hide();
-                    $('#fourth').hide();
-                    $('#third').show();
+                    $('#second3').hide();
+                    $('#first3').hide();
+                    $('#fourth3').hide();
+                    $('#third3').show();
                 } else {
-                    $('#nprogress-bar').val('100');
+                    $('#nprogress-bar3').val('100');
                     $(this).addClass('border-change');
                     $(this).prevAll().addClass('border-change');
                     //$('.percent').html("100% Complete");
-                    $('#third').hide();
-                    $('#first').hide();
-                    $('#fourth').show();
+                    $('#third3').hide();
+                    $('#first3').hide();
+                    $('#fourth3').show();
                 }
             });
             </script>

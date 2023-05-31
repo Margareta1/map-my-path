@@ -2,14 +2,13 @@
 @*
     For more information on enabling MVC for empty projects, visit http://go.microsoft.com/fwlink/?LinkID=397860
 *@
-
 <script src="~/lib/jquery/dist/jquery.js"></script>
 
-<h1 class="text-center">The Heritage Trail</h1>
+<h1 class="text-center">The Artistic Route</h1>
 <div class="row">
     <div class="cont">
-        <progress id="nprogress-bar" value="0" max="100"></progress>
-        <div id="step">
+        <progress id="nprogress-bar1" value="0" max="100"></progress>
+        <div id="step1">
             <span class="first border-change"><i class="fa fa-flask"></i></span>
             <span class="second"><i class="fa fa-paint-brush"></i></span>
             <span class="third"><i class="fa fa-code"></i></span>
@@ -18,64 +17,74 @@
 
 
         <div class="row">
-            <div id="first">
-                <h2>Square of Ban Jelacic</h2>
-                <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
-            </div><div id="second">
-                <h2>Katedrala</h2>
-                <p>There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable. If you are going to use a passage of Lorem Ipsum, you need to be sure there isn't anything embarrassing hidden in the middle of text. All the Lorem Ipsum generators on the Internet tend to repeat predefined chunks as necessary, making this the first true generator on the Internet. It uses a dictionary of over 200 Latin words, combined with a handful of model sentence structures, to generate Lorem Ipsum which looks reasonable. The generated Lorem Ipsum is therefore always free from repetition, injected humour, or non-characteristic words etc.</p>
-            </div>
-            <div id="third">
-                <h2> Dolac</h2>
-                <p>Nullam porttitor pretium dolor vitae ullamcorper. Suspendisse blandit ipsum et condimentum efficitur. Nullam facilisis suscipit sapien, quis condimentum ex elementum vitae. Sed ullamcorper gravida interdum. Aenean blandit mauris lectus, interdum consectetur ex elementum vel. Aliquam sagittis efficitur elit eu tristique. Integer augue arcu, tempus non ligula eu, varius vestibulum ipsum. Praesent nibh mi, condimentum id pellentesque sed, sodales vitae sem. Nam ac luctus libero, in molestie ante. Maecenas ultrices a augue vel efficitur. Duis eget velit lorem. In at elit vel quam ullamcorper venenatis eu ac leo. Proin non commodo nibh, consequat volutpat tellus. Sed sed dui faucibus, pulvinar turpis vel, pretium ipsum. Donec commodo magna id quam tempus, at vulputate quam dignissim. Sed luctus a augue euismod scelerisque.</p>
-            </div>
-            <div id="fourth"><h2>Saint Marko Church</h2><p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p></div>
-        </div>
-        </div>
-        </div>
 
-            <script>
-            $('#first').show();
-            $('#second').hide();
-            $('#third').hide();
-            $('#fourth').hide();
-            $('span').click(function () {
-                if ($(this).hasClass('first')) {
-                    $('#nprogress-bar').val('0');
-                    $(this).nextAll().removeClass('border-change');
-                    //$('.percent').html("0% Complete");
-                    $('#first').show();
-                    $('#second').hide();
-                    $('#third').hide();
-                    $('#fourth').hide();
-                } else if ($(this).hasClass('second')) {
-                    $(this).nextAll().removeClass('border-change');
-                    $('#nprogress-bar').val('34');
-                    $(this).prevAll().addClass('border-change');
-                    $(this).addClass('border-change');
-                    //$('.percent').html("33% Complete");
-                    $('#second').show();
-                    $('#first').hide();
-                    $('#third').hide();
-                    $('#fourth').hide();
-                } else if ($(this).hasClass('third')) {
-                    $(this).nextAll().removeClass('border-change');
-                    $('#nprogress-bar').val('67');
-                    $(this).prevAll().addClass('border-change');
-                    $(this).addClass('border-change');
-                    //$('.percent').html("66% Complete");
-                    $('#second').hide();
-                    $('#first').hide();
-                    $('#fourth').hide();
-                    $('#third').show();
-                } else {
-                    $('#nprogress-bar').val('100');
-                    $(this).addClass('border-change');
-                    $(this).prevAll().addClass('border-change');
-                    //$('.percent').html("100% Complete");
-                    $('#third').hide();
-                    $('#first').hide();
-                    $('#fourth').show();
-                }
-            });
-            </script>
+            <div id="first1">
+                <h2>Museum of Broken Relationships</h2>
+                <p>Visit the Museum of Broken Relationships, a truly unique and emotionally captivating experience. Explore the collection of personal objects and heartfelt stories that beautifully depict the ups and downs of human relationships. Whether you're seeking solace, inspiration, or a reminder of the universal human experience, this museum offers a thought-provoking journey that will leave a lasting impression.</p>
+            </div><div id="second1">
+                <h2>
+                    Croatian Museum of Naive Art
+                </h2>
+                <p>Step into a world of vibrant colors and enchanting simplicity at the Croatian Museum of Naive Art. Discover the fascinating works of self-taught artists, who bring their imagination to life with a charming naivety. Immerse yourself in the captivating folk tales, rural landscapes, and whimsical characters portrayed in the artworks, showcasing the rich cultural heritage of Croatia. This hidden gem is a must-visit for art enthusiasts and those seeking a refreshing and authentic artistic experience.</p>
+            </div>
+            <div id="third1">
+                <h2>
+                    Art Park Zagreb
+                </h2>
+                <p>Welcome to Art Park Zagreb, where creativity meets nature in a harmonious embrace. Wander through this beautiful outdoor gallery filled with captivating sculptures and installations created by local and international artists. Take a leisurely stroll amidst lush greenery, enjoy the peaceful ambiance, and let the art ignite your imagination. Whether you're an art lover or simply seeking a tranquil escape, Art Park Zagreb offers a delightful fusion of culture and nature.</p>
+            </div>
+            <div id="fourth1">
+                <h2>
+                    Museum of Contemporary Art
+                </h2><p>Get ready to immerse yourself in the vibrant world of contemporary art at the Museum of Contemporary Art in Zagreb. Discover thought-provoking exhibitions showcasing the works of both established and emerging artists from Croatia and beyond. From paintings and sculptures to multimedia installations, this dynamic museum offers a diverse range of artistic expressions that challenge conventional boundaries. Experience the ever-evolving art scene, engage with contemporary ideas, and leave inspired by the power of the museum</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+   
+    $('#first1').show();
+    $('#second1').hide();
+    $('#third1').hide();
+    $('#fourth1').hide();
+    $('span').click(function () {
+        if ($(this).hasClass('first')) {
+            $('#nprogress-bar1').val('0');
+            $(this).nextAll().removeClass('border-change');
+            //$('.percent').html("0% Complete");
+            $('#first1').show();
+            $('#second1').hide();
+            $('#third1').hide();
+            $('#fourth1').hide();
+        } else if ($(this).hasClass('second')) {
+            $(this).nextAll().removeClass('border-change');
+            $('#nprogress-bar1').val('34');
+            $(this).prevAll().addClass('border-change');
+            $(this).addClass('border-change');
+            //$('.percent').html("33% Complete");
+            $('#second1').show();
+            $('#first1').hide();
+            $('#third1').hide();
+            $('#fourth1').hide();
+        } else if ($(this).hasClass('third')) {
+            $(this).nextAll().removeClass('border-change');
+            $('#nprogress-bar1').val('67');
+            $(this).prevAll().addClass('border-change');
+            $(this).addClass('border-change');
+            //$('.percent').html("66% Complete");
+            $('#second1').hide();
+            $('#first1').hide();
+            $('#fourth1').hide();
+            $('#third1').show();
+        } else {
+            $('#nprogress-bar1').val('100');
+            $(this).addClass('border-change');
+            $(this).prevAll().addClass('border-change');
+            //$('.percent').html("100% Complete");
+            $('#third1').hide();
+            $('#first1').hide();
+            $('#second1').hide();
+            $('#fourth1').show();
+        }
+    });</script>

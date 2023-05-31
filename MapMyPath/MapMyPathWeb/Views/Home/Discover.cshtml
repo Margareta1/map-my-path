@@ -3,8 +3,8 @@
 
 }
 
-<link rel="stylesheet" href="~/wwwroot/css/images/main.css" asp-append-version="true" />
-<script src="~/js/site.js"></script>
+
+
 
 <!DOCTYPE html>
 <html>
@@ -14,6 +14,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
     <link rel="stylesheet" href="~/css/main.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/css/discover.css" asp-append-version="true" />
 
 </head>
 <div id="bg-feed">
@@ -22,21 +23,55 @@
     <div id="video-gal" class="container">
         <div class="textbox">
 <h2>Discover Zagreb</h2>
-            <p style="text-align: justify">
+            <p style="margin-left:18%">
                 Welcome to Zagreb, a city full of rich history and captivating landmarks! We are delighted to present to you four carefully curated routes that offer the best way to explore and discover the wonders of Zagreb.
             Each route is thoughtfully designed to ensure you experience the essence of this beautiful city and its monumental destinations. Allow us to guide you through the heart of Zagreb with these unforgettable routes, 
             tailored to suit your preferences and time constraints.</p>
-            <div class="parentRoute">
-
-            <div id="Route1"> @Html.Partial("PartialRoute")</div>
+            <div class="discover-body">
+                <input class="input-discover" type="radio" name="switch" id="i_1">
+                <input class="input-discover" type="radio" name="switch" id="i_2">
+                <input class="input-discover" type="radio" name="switch" id="i_3">
+                <input class="input-discover" type="radio" name="switch" id="i_4">
+              
+            <div class="wrapper">
+                <div class="slide">
+                    <div class="content content1">
+                            @Html.Partial("PartialRoute")
+                    </div>
+                </div>
+                <div class="slide">
+                    <div class="content content2">
+                            @Html.Partial("PartialRoute1")
+                    </div>
+                </div>
+                <div class="slide">
+                    <div class="content content3">
+                            @Html.Partial("PartialRoute2")
+                    </div>
+                </div>
+                <div class="slide">
+                    <div class="content content4">
+                            @Html.Partial("PartialRoute3")
+                        </div>
+                </div>
+              </div>
+               </div>
+            <div class="controls">
+                <label style="padding:5px" for="i_1">⬤</label>
+                    <label  style="padding:5px"class="label-discover" for="i_2">⬤</label>
+                    <label class="label-discover" style="padding:5px" for="i_3">⬤</label>
+                    <label class="label-discover" style="padding:5px" for="i_4">⬤</label>
+                   
           
                
-            </div>
            
-           
-              
-
-            </div>
+           </div>
+           </div>
+         
+          
                   
 </body>
 
+<script src="~/js/site.js"></script>
+
+<script src="~/js/discover.js"></script>

@@ -18,64 +18,21 @@
 
 
         <div class="row">
+           
             <div id="first">
                 <h2>Square of Ban Jelacic</h2>
-                <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
+                <p>Welcome to Ban Jelacic Square, the heart and soul of Zagreb! This vibrant square is a hub of activity, surrounded by charming cafes, shops, and historical landmarks. Take a leisurely stroll through the square, soak in the lively atmosphere, and don't forget to admire the impressive statue of Ban Jelacic himself. Whether you're looking to shop, relax, or simply people-watch, Ban Jelacic Square is the perfect starting point for your Zagreb adventure.</p>
             </div><div id="second">
-                <h2>Katedrala</h2>
-                <p>There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable. If you are going to use a passage of Lorem Ipsum, you need to be sure there isn't anything embarrassing hidden in the middle of text. All the Lorem Ipsum generators on the Internet tend to repeat predefined chunks as necessary, making this the first true generator on the Internet. It uses a dictionary of over 200 Latin words, combined with a handful of model sentence structures, to generate Lorem Ipsum which looks reasonable. The generated Lorem Ipsum is therefore always free from repetition, injected humour, or non-characteristic words etc.</p>
+                <h2>Cathedral</h2>
+                <p>Majestically towering over the city, the Zagreb Cathedral is a true architectural marvel. Step inside this awe-inspiring sanctuary and marvel at the intricate details of the stained glass windows, ornate chapels, and the grandeur of its Gothic-style structure. Climb the bell tower for breathtaking panoramic views of the city, and if you're lucky, you might even witness a mesmerizing organ concert. As the spiritual heart of Zagreb, the Cathedral is a must-see destination for history enthusiasts, art lovers, and those seeking a moment of tranquility.</p>
             </div>
             <div id="third">
                 <h2> Dolac</h2>
-                <p>Nullam porttitor pretium dolor vitae ullamcorper. Suspendisse blandit ipsum et condimentum efficitur. Nullam facilisis suscipit sapien, quis condimentum ex elementum vitae. Sed ullamcorper gravida interdum. Aenean blandit mauris lectus, interdum consectetur ex elementum vel. Aliquam sagittis efficitur elit eu tristique. Integer augue arcu, tempus non ligula eu, varius vestibulum ipsum. Praesent nibh mi, condimentum id pellentesque sed, sodales vitae sem. Nam ac luctus libero, in molestie ante. Maecenas ultrices a augue vel efficitur. Duis eget velit lorem. In at elit vel quam ullamcorper venenatis eu ac leo. Proin non commodo nibh, consequat volutpat tellus. Sed sed dui faucibus, pulvinar turpis vel, pretium ipsum. Donec commodo magna id quam tempus, at vulputate quam dignissim. Sed luctus a augue euismod scelerisque.</p>
+                <p>Prepare to be enchanted by Dolac, Zagreb's beloved open-air market. This bustling marketplace is a feast for the senses, offering a dazzling array of fresh fruits, vegetables, flowers, and local delicacies. Immerse yourself in the lively atmosphere as vendors passionately showcase their goods, and be sure to strike up a conversation to learn more about the city's culinary traditions. Whether you're a foodie seeking authentic flavors or a curious traveler looking to soak up the local culture, Dolac is a must-visit destination in Zagreb.</p>
             </div>
-            <div id="fourth"><h2>Saint Marko Church</h2><p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p></div>
+            <div id="fourth"><h2>Saint Marko Church</h2><p>Nestled in the charming neighborhood of Upper Town, Saint Marko Church is a true gem of Zagreb. Its iconic multi-colored tiled roof is a sight to behold, showcasing the city's coat of arms and medieval emblems. Step inside this centuries-old place of worship and admire the stunning Gothic and Romanesque architecture, as well as the beautiful frescoes adorning the walls. Take a moment to absorb the peaceful ambiance, and don't forget to capture a picture-perfect moment against the backdrop of this architectural masterpiece. Saint Marko Church is a must-visit for anyone seeking a glimpse into Zagreb's rich cultural heritage.</p></div>
         </div>
         </div>
         </div>
 
-            <script>
-            $('#first').show();
-            $('#second').hide();
-            $('#third').hide();
-            $('#fourth').hide();
-            $('span').click(function () {
-                if ($(this).hasClass('first')) {
-                    $('#nprogress-bar').val('0');
-                    $(this).nextAll().removeClass('border-change');
-                    //$('.percent').html("0% Complete");
-                    $('#first').show();
-                    $('#second').hide();
-                    $('#third').hide();
-                    $('#fourth').hide();
-                } else if ($(this).hasClass('second')) {
-                    $(this).nextAll().removeClass('border-change');
-                    $('#nprogress-bar').val('34');
-                    $(this).prevAll().addClass('border-change');
-                    $(this).addClass('border-change');
-                    //$('.percent').html("33% Complete");
-                    $('#second').show();
-                    $('#first').hide();
-                    $('#third').hide();
-                    $('#fourth').hide();
-                } else if ($(this).hasClass('third')) {
-                    $(this).nextAll().removeClass('border-change');
-                    $('#nprogress-bar').val('67');
-                    $(this).prevAll().addClass('border-change');
-                    $(this).addClass('border-change');
-                    //$('.percent').html("66% Complete");
-                    $('#second').hide();
-                    $('#first').hide();
-                    $('#fourth').hide();
-                    $('#third').show();
-                } else {
-                    $('#nprogress-bar').val('100');
-                    $(this).addClass('border-change');
-                    $(this).prevAll().addClass('border-change');
-                    //$('.percent').html("100% Complete");
-                    $('#third').hide();
-                    $('#first').hide();
-                    $('#fourth').show();
-                }
-            });
-            </script>
+<script src="~/js/discover.js"></script>

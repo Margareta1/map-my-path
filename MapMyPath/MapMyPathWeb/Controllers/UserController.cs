@@ -73,15 +73,15 @@ namespace MapMyPathWeb.Controllers
         }
 
         [Authorize]
-        public IActionResult DeleteUser()
+        public async Task<IActionResult> DeleteUser()
         {
-           
-            return View();
+            await HttpContext.SignOutAsync(CookieAuthenticationDefaults.AuthenticationScheme);
+            return RedirectToAction("SignIn", "User");
         }
         [HttpPost]
-        public IActionResult DeleteUser(AppUser user)
+        public async Task<IActionResult> DeleteUser(AppUser user)
         {
-            accountService.DeleteUser(user.UserName);
+            await HttpContext.SignOutAsync(CookieAuthenticationDefaults.AuthenticationScheme);
             return RedirectToAction("SignIn", "User"); 
         }
         [Authorize]

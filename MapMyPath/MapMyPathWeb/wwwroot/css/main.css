@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300&display=swap');
+﻿@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300&display=swap');
 
 .card-body-f {
     border-style: solid;
@@ -246,116 +246,9 @@ text-align:center;
 
 
 
-.textbox{
-    text-align:center;
-    width:60%;
-    margin:auto;
-}
-.textbox p{
-    margin:7% 10px 7% 10px;
-    font-size:1.2rem;
-}
-.textbox h2{
-    font-weight:700;
-}
+/********************/
 
 
-
-
-.text-center {
-    text-align: center;
-    color: #CCC;
-}
-
-.cont {
-    height: 100%;
-    left: calc(50% - 350px);
-    padding: 0;
-    margin: 40px auto;
-    position: absolute;
-}
-
-#nprogress-bar {
-    -webkit-appearance: none;
-    width: 700px;
-    color: #CCC;
-    height: 2px;
-    margin: 0 auto;
-    position: relative;
-    left:-18%;
-}
-
-#first, #second, #third, #fourth {
-    margin: 0px;
-}
-
-#step span {
-    height: 80px;
-    width: 80px;
-    border-radius: 100%;
-    border: 3px solid #CCC;
-    background: #CCCCCC;
-    position: absolute;
-    left: 0;
-    color: #ffffff;
-    top: -30px;
-    cursor: pointer;
-    transition: all 0.4s ease-in-out;
-}
-
-#step {
-    height: 100px;
-    width: 100%;
-}
-
-    #step span i {
-        padding: 20px;
-        text-align: center;
-        font-size: 40px;
-    }
-
-    #step .first {
-        left: -23px;
-    }
-
-
-    #step .second {
-        left: 200px;
-    }
-
-    #step .third {
-        left: 420px;
-    }
-
-    #step .fourth {
-        left: 640px;
-    }
-
-.detail {
-    position: relative;
-}
-
-#nprogress-bar::-webkit-progress-value { /* Changes line color */
-    background: #334870;
-    transition: all 0.4s ease-in-out;
-}
-
-#nprogress-bar::-webkit-progress-bar { /* Changes background color */
-    background: #CCC;
-}
-
-#step .border-change {
-    border-color: #334870;
-    background: #334870;
-    transition: all 0.4s ease-in-out;
-}
-
-#first h2, #second h2, #third h2, #fourth h2{
-    font-family: 'Montserrat', sans-serif;
-    font-size:1.5rem;
-    position:relative;
-    left: -18%;
-}
 
 
 
