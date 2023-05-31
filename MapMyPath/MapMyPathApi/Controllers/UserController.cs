@@ -1,4 +1,5 @@
-﻿using MapMyPathCore.Services;
+﻿using MapMyPathCore.Interfaces;
+using MapMyPathCore.Services;
 using MapMyPathLib;
 using Microsoft.AspNetCore.Mvc;
 using Newtonsoft.Json;
@@ -8,20 +9,19 @@ namespace MapMyPathApi.Controllers
     [ApiController]
     public class UserController : ControllerBase
     {
+        private IAccountService accountService;
+        private IRouteService routeService;
 
-        private AccountService accountService;
-        private RouteService routeService;
-        public UserController()
+        public UserController(IAccountService accountService, IRouteService routeService)
         {
-            accountService = new AccountService();
-            routeService = new RouteService();
+            this.accountService = accountService;
+            this.routeService = routeService;
         }
 
         [HttpGet]
         [Route("getallusers")]
         public JsonResult GetAllUsers()
         {
-
             IList<AppUser> usersList = new List<AppUser>();
             try
             {
@@ -32,7 +32,6 @@ namespace MapMyPathApi.Controllers
             {
                 return new JsonResult(e.Message);
             }
-
         }
 
         [HttpGet]
@@ -64,7 +63,6 @@ namespace MapMyPathApi.Controllers
             {
                 return new JsonResult("There is already a user in database with this email.");
             }
-
         }
 
         [HttpGet]
@@ -79,7 +77,6 @@ namespace MapMyPathApi.Controllers
             {
                 return new JsonResult("Error");
             }
-
         }
 
         [HttpGet]
@@ -102,7 +99,6 @@ namespace MapMyPathApi.Controllers
             {
                 return new JsonResult("There is no account in the database with this username");
             }
-
         }
 
         [HttpGet]
@@ -124,7 +120,6 @@ namespace MapMyPathApi.Controllers
         [Route("addstoppingpoint/{routeid}/{lat}/{lon}/{order}")]
         public JsonResult AddStoppingPoint(string routeId, double lat, double lon, int order)
         {
-
             if (routeService.AddStoppingPoint(routeId, lat, lon, order))
             {
                 return new JsonResult("Success");
@@ -133,7 +128,6 @@ namespace MapMyPathApi.Controllers
             {
                 return new JsonResult("Error");
             }
-
         }
 
         [Route("getuserroutes/{username}")]
@@ -149,8 +143,6 @@ namespace MapMyPathApi.Controllers
             {
                 return new JsonResult("Error");
             }
-
-
         }
 
         [HttpGet]
@@ -166,7 +158,6 @@ namespace MapMyPathApi.Controllers
             {
                 return new JsonResult("Error");
             }
-
         }
     }
 }
