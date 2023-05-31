@@ -1,7 +1,9 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300&display=swap');
-#menuToggle{
-    display:none;
+
+#menuToggle {
+    display: none;
 }
+
 nav ul {
     margin-top: -2px;
     display: flex;
@@ -14,26 +16,28 @@ nav ul {
     left: 0;
     font-size: 1.5rem;
     font-family: 'Montserrat', sans-serif;
-    z-index: 1000;
- 
+    z-index: 10000;
 }
-a:hover{
-color:peachpuff !important;
+
+a:hover {
+    color: peachpuff !important;
 }
-a{
-    text-decoration:none !important;
+
+a {
+    text-decoration: none !important;
 }
+
 .navli-l0 {
     list-style: none;
     position: relative;
     left: 3%;
-    margin:auto;
+    margin: auto;
 }
-    
-.navli-l0 img {
+
+    .navli-l0 img {
         border: 4px solid #334870;
         border-radius: 50%;
-}
+    }
 
 .navli-l1 {
     list-style: none;
@@ -41,18 +45,16 @@ a{
     text-align: center;
 }
 
-
- li a {
-     color: white;
-     display: inline-block;
-     margin: 0 1rem;
-     text-decoration: none;
- }
-
+li a {
+    color: white;
+    display: inline-block;
+    margin: 0 1rem;
+    text-decoration: none;
+}
 
 .footer {
     position: fixed !important;
-    text-decoration:none !important;
+    text-decoration: none !important;
     display: flex;
     color: white;
     margin-top: auto;
@@ -66,22 +68,21 @@ a{
     right: 0;
     font-family: 'Montserrat', sans-serif;
     font-size: 1vw;
-    z-index: 100;
+    z-index: 100000;
 }
-.privicy h1{
+
+.privicy h1 {
     margin-top: 130px;
     text-align: center;
     font-family: 'Montserrat', sans-serif;
-    font-weight:600;
+    font-weight: 600;
 }
 
 .privicy p {
- 
     text-align: justify;
     font-size: 1.5rem;
     font-family: 'Montserrat', sans-serif;
 }
-
 
 /* profile menu */
 
@@ -96,13 +97,13 @@ a{
 }
 
     .profile h5 {
-        color:white;
+        color: white;
         text-align: end;
         line-height: 1;
         margin-bottom: -15px;
         font-weight: 400;
         text-decoration: none;
-        list-style-type:none;
+        list-style-type: none;
     }
 
     .profile p {
@@ -135,7 +136,7 @@ a{
     top: calc(100% + 24px);
     right: 16px;
     width: 130px;
-    text-align:center;
+    text-align: center;
     min-height: 150px;
     background: #fff;
     box-shadow: 0 10px 20px rgba(0, 0, 0, .2);
@@ -167,7 +168,6 @@ a{
 
     .menu ul {
         position: relative;
-     
         display: flex;
         flex-direction: column;
         z-index: 100000;
@@ -188,61 +188,57 @@ a{
                 display: flex;
                 align-items: center;
                 padding: 10px 25px 10px 10px;
-                margin-right:50px;
-               
+                margin-right: 50px;
             }
 
                 .menu ul li a i {
                     font-size: 0.5rem;
                 }
 
-
-
-
 @media screen and (max-width: 780px) {
-    nav ul{
-        display:none;
+    nav ul {
+        display: none;
     }
+
     .footer {
-     
-        display:none;
+        display: none;
     }
+
     #menuToggle {
-        position:absolute;
+        position: absolute;
         display: block;
         margin-top: 10px;
         z-index: 3;
     }
 
-    #menuToggle a {
-        text-decoration: none;
-        color: white;
-        transition: color 0.3s ease;
-    }
+        #menuToggle a {
+            text-decoration: none;
+            color: white;
+            transition: color 0.3s ease;
+        }
 
-     #menuToggle a:hover {
-        color: peachpuff;
-      }
+            #menuToggle a:hover {
+                color: peachpuff;
+            }
 
-    #menuToggle input {
-        display: block;
-        width: 40px;
-        height: 32px;
-        position: absolute;
-        top: -7px;
-        left: -5px;
-        cursor: pointer;
-        opacity: 0; 
-        z-index: 5; 
+        #menuToggle input {
+            display: block;
+            width: 40px;
+            height: 32px;
+            position: absolute;
+            top: -7px;
+            left: -5px;
+            cursor: pointer;
+            opacity: 0;
+            z-index: 5;
+            -webkit-touch-callout: none;
+        }
 
-        -webkit-touch-callout: none;
-    }
-
-    #menuToggle span {
+        #menuToggle span {
             display: block;
             width: 33px;
             height: 4px;
-            margin-left:10px;
+            margin-left: 10px;
             margin-bottom: 5px;
             position: relative;
             background: #334870;
@@ -252,53 +248,52 @@ a{
             transition: transform 0.5s cubic-bezier(0.77,0.2,0.05,1.0), background 0.5s cubic-bezier(0.77,0.2,0.05,1.0), opacity 0.55s ease;
         }
 
-    #menuToggle span:first-child {
-        transform-origin: 0% 0%;
-    }
+            #menuToggle span:first-child {
+                transform-origin: 0% 0%;
+            }
 
-    #menuToggle span:nth-last-child(2) {
-        transform-origin: 0% 100%;
-    }
+            #menuToggle span:nth-last-child(2) {
+                transform-origin: 0% 100%;
+            }
 
-    #menuToggle input:checked ~ span {
-        opacity: 0.5;
-        transform: rotate(45deg) translate(-2px, -1px);
-        background: white;
-    }
-    #menuToggle input:checked ~ span:nth-last-child(3) {
-       opacity: 0;
-       transform: rotate(0deg) scale(0.2, 0.2);
-    }
+        #menuToggle input:checked ~ span {
+            opacity: 0.5;
+            transform: rotate(45deg) translate(-2px, -1px);
+            background: white;
+        }
 
-    #menuToggle input:checked ~ span:nth-last-child(2) {
-        transform: rotate(-45deg) translate(0, -1px);
-    }
+            #menuToggle input:checked ~ span:nth-last-child(3) {
+                opacity: 0;
+                transform: rotate(0deg) scale(0.2, 0.2);
+            }
 
+            #menuToggle input:checked ~ span:nth-last-child(2) {
+                transform: rotate(-45deg) translate(0, -1px);
+            }
 
-     #menu {
+    #menu {
         position: absolute;
-        display:block;
-        text-align:center;
+        display: block;
+        text-align: center;
         width: 430px;
-        height:300px;
+        height: 300px;
         margin: -90px 0 0 -50px;
         padding: 50px;
         padding-top: 125px;
         background: #334870;
         list-style-type: none;
         -webkit-font-smoothing: antialiased;
-        z-index:2;
+        z-index: 2;
         transform-origin: 0% 0%;
         transform: translate(-100%, 0);
         transition: transform 0.5s cubic-bezier(0.77,0.2,0.05,1.0);
     }
 
-     #menu li {
+        #menu li {
             padding: 10px 0;
             font-size: 22px;
-     }
+        }
 
-  
     #menuToggle input:checked ~ ul {
         transform: none;
     }

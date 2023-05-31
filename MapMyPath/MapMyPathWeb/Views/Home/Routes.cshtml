@@ -1,29 +1,52 @@
 ﻿@{
     ViewData["Title"] = "Routes";
-   
+    var isUserLoggedIn = Context.User.Identity.IsAuthenticated;
+    @model List<MapMyPathLib.Route>
+    int i = 1;
 }
 
 <head>
     <link rel="stylesheet" href="~/css/weather.css" asp-append-version="true" />
 </head>
 <div id="bg-feed"></div>
-<div class="container" id="mapsContainer" >
+<div class="container" id="mapsContainer">
+
     <div id="map"></div>
     <div id="renderRoute">
         <span>Once you've selected all your destinations, click here:</span>
-        <button  id="btnRender">Render route</button>
+        <button id="btnRender">Render route</button>
         <span>or:</span>
-        <button  id="btnRefresh">Refresh</button>
+        <button id="btnRefresh">Refresh</button>
         <span>or:</span>
         <button id="saveRouteBtn">Save route</button>
 
 
     </div>
+    <div id="routeList1">
+        <div id="reklama">
+            <h1>REKLAMA</h1>
+        </div>
+    </div>
+    @if (isUserLoggedIn)
+    {
+
+        <div id="renderRoute">
+            @foreach (var route in Model)
+            {
+
+                <button class="routeList" data-route-id="@route.IdRoute" onclick="loadRouteIntoMap(event)" id="route-@route.IdRoute"> ROUTE @i</button>
+                i++;
+            }
+        </div>
+    }
+
+
+
 </div>
 <div id="video-gal" class="container">
     <table id="tablica" class="table">
         <tr>
-            <td >City name:</td>
+            <td>City name:</td>
             <td id="cityName"> </td>
         </tr>
         <tr>
@@ -48,6 +71,8 @@
         </tr>
     </table>
 </div>
+
+
 
 <script src="~/js/routes.js"></script>
 <script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
