@@ -11,6 +11,7 @@ namespace MapMyPathWeb.Controllers
     public class UserController : Controller
     {
         private AccountService accountService;
+
         public UserController()
         {
             accountService = new AccountService();
@@ -21,32 +22,34 @@ namespace MapMyPathWeb.Controllers
             ClaimsPrincipal userPrincipal = HttpContext.User;
             if (userPrincipal.Identity.IsAuthenticated)
                 return RedirectToAction("Index", "Home");
-           
+
             return View();
         }
+
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> SignIn(AppUser appUser)
         {
-         
-                if (accountService.ValidateUser(appUser.UserName, appUser.Password)) { 
-                    List<Claim> claims = new List<Claim>()
-                    {
-                        new Claim(ClaimTypes.NameIdentifier, appUser.UserName),
-                        new Claim("OtherProperites", "ExampleRole")
-                    };
-                    ClaimsIdentity claimsIdentity = new ClaimsIdentity(claims, CookieAuthenticationDefaults.AuthenticationScheme);
-                    AuthenticationProperties properties = new AuthenticationProperties()
-                    {
-                        AllowRefresh = true,
-                        IsPersistent = true
-                    };
-                    await HttpContext.SignInAsync(CookieAuthenticationDefaults.AuthenticationScheme, new ClaimsPrincipal(claimsIdentity), properties);
-                    ViewData["Username"] = appUser.UserName;
-                    return RedirectToAction("Index", "Home");
-                }
-            ViewData["ValidateMessage"] = "user not found";
+            if (accountService.ValidateUser(appUser.UserName, appUser.Password))
+            {
+                List<Claim> claims = new List<Claim>()
+        {
+            new Claim(ClaimTypes.NameIdentifier, appUser.Id.ToString()),
+            new Claim(ClaimTypes.Name, appUser.UserName),
+            new Claim("OtherProperties", "ExampleRole")
+        };
 
+                ClaimsIdentity claimsIdentity = new ClaimsIdentity(claims, CookieAuthenticationDefaults.AuthenticationScheme);
+                AuthenticationProperties properties = new AuthenticationProperties()
+                {
+                    AllowRefresh = true,
+                    IsPersistent = true
+                };
+                await HttpContext.SignInAsync(CookieAuthenticationDefaults.AuthenticationScheme, new ClaimsPrincipal(claimsIdentity), properties);
+                ViewData["Username"] = appUser.UserName;
+                return RedirectToAction("Index", "Home");
+            }
+            ViewData["ValidateMessage"] = "user not found";
             return View();
         }
 
@@ -54,18 +57,19 @@ namespace MapMyPathWeb.Controllers
         {
             return View();
         }
+
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public IActionResult SignUp(AppUser appUser )
+        public IActionResult SignUp(AppUser appUser)
         {
             if (ModelState.IsValid)
             {
-               
                 accountService.AddUser(appUser.UserName, appUser.Password, appUser.FirstName, appUser.LastName);
                 return RedirectToAction("SignIn");
             }
             return View();
         }
+
         [Authorize]
         public IActionResult EditUser()
         {
@@ -78,12 +82,14 @@ namespace MapMyPathWeb.Controllers
             await HttpContext.SignOutAsync(CookieAuthenticationDefaults.AuthenticationScheme);
             return RedirectToAction("SignIn", "User");
         }
+
         [HttpPost]
         public async Task<IActionResult> DeleteUser(AppUser user)
         {
             await HttpContext.SignOutAsync(CookieAuthenticationDefaults.AuthenticationScheme);
             return RedirectToAction("SignIn", "User"); 
         }
+
         [Authorize]
         public async Task<IActionResult> SignOut()
         {

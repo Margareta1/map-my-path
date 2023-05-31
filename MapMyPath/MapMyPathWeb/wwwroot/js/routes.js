@@ -381,3 +381,28 @@ document.getElementById('saveRouteBtn').addEventListener('click', async function
         console.log("Network response was not ok.");
     }
 });
+
+function loadRouteIntoMap(event) {
+    let routeId = event.target.dataset.routeId;
+    //console.log('loadRouteIntoMap called with routeId:', routeId);
+    fetch('/Home/GetCoordinatesForRoute?routeId=' + routeId)
+        .then(response => response.json())
+        .then(coordinates => {
+            //console.log('Received coordinates:', coordinates);
+            coordinates.forEach(coordinate => {
+                var lat = Number(String(coordinate.latitude).substring(0, 10)) / 1E8;
+                var lon = Number(String(coordinate.longitude).substring(0, 10)) / 1E8;
+                //console.log(`latLng (${lat}, ${lon})`);
+                addMarker({ lat: lat, lng: lon });
+            });
+            //drawRoute(coordinates);
+        });
+}
+
+document.querySelectorAll('.route-button').forEach(button => {
+    button.addEventListener('click', function () {
+        var routeId = this.dataset.routeId;
+        //console.log('1: ', routeId);
+        loadRouteIntoMap(routeId);
+    });
+});

@@ -182,7 +182,7 @@ namespace MapMyPathWeb.Services
             return DELETED_USER;
         }
 
-        public string CreateRoute(string username)
+        public async Task<string> CreateRoute(string username)
         {
             try
             {
