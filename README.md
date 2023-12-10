@@ -1,0 +1,1 @@
+MapMyPath is a group project created for university purposes using .NET 6 with Razor pages. It is meant to be an app for tourists to see various information about cities (starting with Zagreb) in one place.
